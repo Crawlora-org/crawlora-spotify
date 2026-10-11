@@ -3,8 +3,8 @@ require_relative "lib/crawlora/spotify/version"
 Gem::Specification.new do |spec|
   spec.name = "crawlora-spotify"
   spec.version = Crawlora::Spotify::VERSION
-  spec.summary = "Spotify client for the Crawlora hosted API"
-  spec.description = "Credential-free Spotify API access through Crawlora's hosted service."
+  spec.summary = "Spotify API client for Crawlora (38 endpoints)"
+  spec.description = "Ruby client for Crawlora's hosted Spotify API. Covers search, tracks, albums, artists, playlists, profiles, audiobooks, charts, and podcast shows and episodes across 38 endpoints."
   spec.authors = ["Crawlora"]
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6"
