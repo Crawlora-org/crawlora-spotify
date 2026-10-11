@@ -8,7 +8,7 @@ Official Crawlora client packages for the hosted Spotify API. These clients call
 - Python: [`crawlora-spotify`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-spotify`](go.mod)
 - Ruby: [`crawlora-spotify`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-spotify:0.1.0`](java/README.md)
+- Java: [`net.crawlora:crawlora-spotify:0.1.1`](java/README.md)
 - PHP: [`crawlora/spotify`](php/README.md)
 
 For installation and runnable examples, use the README for your language. See the [API endpoint and parameter reference](docs/usage.md) for shared operation details.

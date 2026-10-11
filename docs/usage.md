@@ -2,7 +2,7 @@
 
 The `@crawlora-org/spotify` and `crawlora-spotify` packages call Crawlora's hosted API. Set `CRAWLORA_API_KEY` to a key for your Crawlora account before making requests. Service usage is billed under that account. These clients do not run a browser or scrape Spotify locally; Crawlora is independent from and not endorsed by Spotify or its owners.
 
-The package tracks the public API contract revision `sha256:f451f5340517c087f7a6f601dab3c1eef266bade0631f9b5d1b4455dd90c24c0` bundled with release `0.1.0`. Maintainers can preview daily contract updates with the repository's `Sync live API contract` workflow; unchanged contracts do not produce package releases.
+The package tracks the public API contract revision `sha256:f451f5340517c087f7a6f601dab3c1eef266bade0631f9b5d1b4455dd90c24c0` bundled with release `0.1.1`. Maintainers can preview daily contract updates with the repository's `Sync live API contract` workflow; unchanged contracts do not produce package releases.
 
 Both packages expose all 38 operations in the bundled API contract. JavaScript uses camelCase methods and Python uses snake_case methods. Methods also remain available through the `spotify` group and the generated `Client` alias.
 

@@ -6,7 +6,7 @@ from .operations import OPERATION_COUNT, OPERATION_IDS, PLATFORM
 
 Client = SpotifyClient
 AsyncClient = AsyncSpotifyClient
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 DISPLAY_NAME = 'Spotify'
 PLATFORM = 'spotify'
 CONTRACT_REVISION = 'sha256:f451f5340517c087f7a6f601dab3c1eef266bade0631f9b5d1b4455dd90c24c0'
