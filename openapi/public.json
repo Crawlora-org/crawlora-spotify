@@ -1,0 +1,5954 @@
+{
+  "basePath": "/api/v1",
+  "definitions": {
+    "app.Response": {
+      "description": "The Response struct is used for wrapping the API response with a code, message, and data.",
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "description": "Data is the response data (can be any object or null)\n@example {\"id\": 1, \"name\": \"John Doe\"}"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.AlbumMeta": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "fetchedAt": {
+          "type": "string"
+        },
+        "operationName": {
+          "type": "string"
+        },
+        "trackCount": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.AlbumResponse": {
+      "properties": {
+        "albumType": {
+          "type": "string"
+        },
+        "artists": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "copyrights": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "durationMs": {
+          "type": "integer"
+        },
+        "externalUrl": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        },
+        "isExplicit": {
+          "type": "boolean"
+        },
+        "isPlayable": {
+          "type": "boolean"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.AlbumMeta"
+        },
+        "name": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "releaseDate": {
+          "type": "string"
+        },
+        "shareUrl": {
+          "type": "string"
+        },
+        "totalTracks": {
+          "type": "integer"
+        },
+        "tracks": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ArtistAlbumsMeta": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "type": "string"
+        },
+        "operationName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ArtistAlbumsResponse": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.ArtistAlbumsMeta"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "order": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ArtistCollectionMeta": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "type": "string"
+        },
+        "operationName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ArtistCollectionResponse": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.ArtistCollectionMeta"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ArtistMeta": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "discographyCount": {
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "type": "string"
+        },
+        "operationName": {
+          "type": "string"
+        },
+        "playlistCount": {
+          "type": "integer"
+        },
+        "relatedCount": {
+          "type": "integer"
+        },
+        "topTrackCount": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ArtistResponse": {
+      "properties": {
+        "biography": {
+          "type": "string"
+        },
+        "discography": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "externalUrl": {
+          "type": "string"
+        },
+        "followers": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.ArtistMeta"
+        },
+        "monthlyUsers": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "playlists": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "related": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "shareUrl": {
+          "type": "string"
+        },
+        "topTracks": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.AudiobookChaptersMeta": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "type": "string"
+        },
+        "operationName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.AudiobookChaptersResponse": {
+      "properties": {
+        "chapters": {
+          "items": {
+            "$ref": "#/definitions/spotify.PodcastEpisodeSummary"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.AudiobookChaptersMeta"
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "total": {
+          "type": "integer"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.AudiobookMeta": {
+      "properties": {
+        "appVersion": {
+          "type": "string"
+        },
+        "fetchedAt": {
+          "type": "string"
+        },
+        "operationName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.AudiobookResponse": {
+      "properties": {
+        "authors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "description": {
+          "type": "string"
+        },
+        "externalUrl": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        },
+        "isExplicit": {
+          "type": "boolean"
+        },
+        "mediaType": {
+          "type": "string"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.AudiobookMeta"
+        },
+        "name": {
+          "type": "string"
+        },
+        "narrators": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "totalChapters": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.BrowsePageItem": {
+      "properties": {
+        "description": {
+          "example": "The official podcast of comedian Joe Rogan.",
+          "type": "string"
+        },
+        "externalUrl": {
+          "example": "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
+          "type": "string"
+        },
+        "imageUrl": {
+          "example": "https://i.scdn.co/image/ab67656300005f1f54e6837957803d762a3f4d2b",
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        },
+        "publisher": {
+          "example": "Joe Rogan",
+          "type": "string"
+        },
+        "subtitle": {
+          "example": "Joe Rogan",
+          "type": "string"
+        },
+        "title": {
+          "example": "The Joe Rogan Experience",
+          "type": "string"
+        },
+        "type": {
+          "example": "Podcast",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:show:4rOoJ6Egrf8K2IrywzwOMk",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.BrowsePageMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:12Z",
+          "type": "string"
+        },
+        "operationName": {
+          "example": "browsePage",
+          "type": "string"
+        },
+        "sectionCount": {
+          "example": 8,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.BrowsePageResponse": {
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/spotify.BrowsePageMeta"
+        },
+        "sections": {
+          "items": {
+            "$ref": "#/definitions/spotify.BrowsePageSection"
+          },
+          "type": "array"
+        },
+        "subtitle": {
+          "example": "New shows and episodes",
+          "type": "string"
+        },
+        "title": {
+          "example": "Podcasts",
+          "type": "string"
+        },
+        "type": {
+          "example": "BrowseSectionContainer",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:genre:podcasts-web",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.BrowsePageSection": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/spotify.BrowsePageItem"
+          },
+          "type": "array"
+        },
+        "subtitle": {
+          "example": "Recommended shows",
+          "type": "string"
+        },
+        "title": {
+          "example": "Popular podcasts",
+          "type": "string"
+        },
+        "totalCount": {
+          "example": 20,
+          "type": "integer"
+        },
+        "type": {
+          "example": "BrowseGenericSectionData",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:section:0JQ5IMCbQBLqNPkcmYxQPQ",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.BrowseSectionMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "count": {
+          "example": 20,
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:12Z",
+          "type": "string"
+        },
+        "operationName": {
+          "example": "browseSection",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.BrowseSectionResponse": {
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/spotify.BrowsePageItem"
+          },
+          "type": "array"
+        },
+        "limit": {
+          "example": 20,
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.BrowseSectionMeta"
+        },
+        "offset": {
+          "example": 0,
+          "type": "integer"
+        },
+        "subtitle": {
+          "example": "Recommended shows",
+          "type": "string"
+        },
+        "title": {
+          "example": "Popular podcasts",
+          "type": "string"
+        },
+        "totalCount": {
+          "example": 50,
+          "type": "integer"
+        },
+        "type": {
+          "example": "BrowseGenericSectionData",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:section:0JQ5IMCbQBLqNPkcmYxQPQ",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ChartItem": {
+      "properties": {
+        "description": {
+          "example": "The official podcast of comedian Joe Rogan.",
+          "type": "string"
+        },
+        "episodeDescription": {
+          "example": "A representative chart episode.",
+          "type": "string"
+        },
+        "episodeExternalUrl": {
+          "example": "https://open.spotify.com/episode/2C2Y5kNq7qCVOVhbA0G3os",
+          "type": "string"
+        },
+        "episodeImageUrl": {
+          "example": "https://i.scdn.co/image/ab67656300005f1f54e6837957803d762a3f4d2b",
+          "type": "string"
+        },
+        "episodeName": {
+          "example": "Example episode",
+          "type": "string"
+        },
+        "episodeUri": {
+          "example": "spotify:episode:2C2Y5kNq7qCVOVhbA0G3os",
+          "type": "string"
+        },
+        "externalUrl": {
+          "example": "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
+          "type": "string"
+        },
+        "imageUrl": {
+          "example": "https://i.scdn.co/image/ab67656300005f1f54e6837957803d762a3f4d2b",
+          "type": "string"
+        },
+        "name": {
+          "example": "The Joe Rogan Experience",
+          "type": "string"
+        },
+        "publisher": {
+          "example": "Joe Rogan",
+          "type": "string"
+        },
+        "rank": {
+          "example": 1,
+          "type": "integer"
+        },
+        "rankMove": {
+          "example": "UNCHANGED",
+          "type": "string"
+        },
+        "showDescription": {
+          "example": "The official podcast of comedian Joe Rogan.",
+          "type": "string"
+        },
+        "showExternalUrl": {
+          "example": "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
+          "type": "string"
+        },
+        "showImageUrl": {
+          "example": "https://i.scdn.co/image/ab67656300005f1f54e6837957803d762a3f4d2b",
+          "type": "string"
+        },
+        "showName": {
+          "example": "The Joe Rogan Experience",
+          "type": "string"
+        },
+        "showPublisher": {
+          "example": "Joe Rogan",
+          "type": "string"
+        },
+        "showUri": {
+          "example": "spotify:show:4rOoJ6Egrf8K2IrywzwOMk",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:show:4rOoJ6Egrf8K2IrywzwOMk",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ChartMeta": {
+      "properties": {
+        "count": {
+          "example": 100,
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:13Z",
+          "type": "string"
+        },
+        "sourceUrl": {
+          "example": "https://podcastcharts.byspotify.com/api/charts/top-podcasts?region=us",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ChartResponse": {
+      "properties": {
+        "chart": {
+          "example": "top-podcasts",
+          "type": "string"
+        },
+        "chartName": {
+          "example": "Top Podcasts",
+          "type": "string"
+        },
+        "chartType": {
+          "example": "chart",
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/spotify.ChartItem"
+          },
+          "type": "array"
+        },
+        "limit": {
+          "example": 100,
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.ChartMeta"
+        },
+        "region": {
+          "example": "us",
+          "type": "string"
+        },
+        "regionName": {
+          "example": "United States",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.CountryHubContentID": {
+      "properties": {
+        "id": {
+          "example": "CHARTS",
+          "type": "string"
+        },
+        "title": {
+          "example": "Featured Charts",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.CountryHubContentMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:13Z",
+          "type": "string"
+        },
+        "itemCount": {
+          "example": 20,
+          "type": "integer"
+        },
+        "operationName": {
+          "example": "countryHubContent",
+          "type": "string"
+        },
+        "partialErrors": {
+          "description": "PartialErrors counts upstream GraphQL field errors tolerated alongside\nusable items. Zero on a fully clean response.",
+          "example": 1,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.CountryHubContentResponse": {
+      "properties": {
+        "contentId": {
+          "example": "CHARTS",
+          "type": "string"
+        },
+        "countryCode": {
+          "example": "US",
+          "type": "string"
+        },
+        "countryName": {
+          "example": "United States",
+          "type": "string"
+        },
+        "hexColor": {
+          "example": "#1DB954",
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/spotify.CountryHubItem"
+          },
+          "type": "array"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.CountryHubContentMeta"
+        },
+        "supportedContentIds": {
+          "items": {
+            "$ref": "#/definitions/spotify.CountryHubContentID"
+          },
+          "type": "array"
+        },
+        "supportedCountries": {
+          "items": {
+            "$ref": "#/definitions/spotify.PopularCountry"
+          },
+          "type": "array"
+        },
+        "title": {
+          "example": "Featured Charts",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.CountryHubItem": {
+      "properties": {
+        "album": {
+          "$ref": "#/definitions/spotify.SearchResultSummary"
+        },
+        "artists": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "attributes": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "example": {
+            "{\"chart\"": "\"top-50\"}"
+          },
+          "type": "object"
+        },
+        "description": {
+          "example": "Your daily update of the most played tracks right now.",
+          "type": "string"
+        },
+        "externalUrl": {
+          "example": "https://open.spotify.com/playlist/37i9dQZEVXbLRQDuF5jeBpM",
+          "type": "string"
+        },
+        "imageUrl": {
+          "example": "https://charts-images.scdn.co/assets/locale_en/regional/daily/region_us_default.jpg",
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        },
+        "owner": {
+          "$ref": "#/definitions/spotify.SearchResultSummary"
+        },
+        "subtitle": {
+          "example": "Spotify",
+          "type": "string"
+        },
+        "title": {
+          "example": "Top 50 - USA",
+          "type": "string"
+        },
+        "type": {
+          "example": "Playlist",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:playlist:37i9dQZEVXbLRQDuF5jeBpM",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.CountryHubMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:13Z",
+          "type": "string"
+        },
+        "itemCount": {
+          "example": 20,
+          "type": "integer"
+        },
+        "operationName": {
+          "example": "countryHubsPage",
+          "type": "string"
+        },
+        "partialErrors": {
+          "description": "PartialErrors counts upstream GraphQL field errors that were tolerated\nbecause usable shelves were still returned (e.g. one broken shelf among\nseveral). Zero on a fully clean response.",
+          "example": 1,
+          "type": "integer"
+        },
+        "sectionCount": {
+          "example": 5,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.CountryHubResponse": {
+      "properties": {
+        "countryCode": {
+          "example": "US",
+          "type": "string"
+        },
+        "countryName": {
+          "example": "United States",
+          "type": "string"
+        },
+        "hexColor": {
+          "example": "#1DB954",
+          "type": "string"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.CountryHubMeta"
+        },
+        "sections": {
+          "items": {
+            "$ref": "#/definitions/spotify.CountryHubSection"
+          },
+          "type": "array"
+        },
+        "supportedCountries": {
+          "items": {
+            "$ref": "#/definitions/spotify.PopularCountry"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.CountryHubSection": {
+      "properties": {
+        "contentId": {
+          "example": "CHARTS",
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/spotify.CountryHubItem"
+          },
+          "type": "array"
+        },
+        "title": {
+          "example": "Featured Charts",
+          "type": "string"
+        },
+        "totalCount": {
+          "example": 20,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.HomeMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:12Z",
+          "type": "string"
+        },
+        "operationName": {
+          "example": "home",
+          "type": "string"
+        },
+        "sectionCount": {
+          "example": 8,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.HomeResponse": {
+      "properties": {
+        "facet": {
+          "example": "music",
+          "type": "string"
+        },
+        "greeting": {
+          "example": "Good afternoon",
+          "type": "string"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.HomeMeta"
+        },
+        "sections": {
+          "items": {
+            "$ref": "#/definitions/spotify.BrowsePageSection"
+          },
+          "type": "array"
+        },
+        "timeZone": {
+          "example": "UTC",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ImageAsset": {
+      "properties": {
+        "height": {
+          "example": 640,
+          "type": "integer"
+        },
+        "url": {
+          "example": "https://i.scdn.co/image/ab6765630000ba8ab0484f8ee2933eceab32bac0",
+          "type": "string"
+        },
+        "width": {
+          "example": 640,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.PlaylistMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "episodeCount": {
+          "example": 0,
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:12Z",
+          "type": "string"
+        },
+        "itemCount": {
+          "example": 20,
+          "type": "integer"
+        },
+        "operationName": {
+          "example": "fetchPlaylist",
+          "type": "string"
+        },
+        "trackCount": {
+          "example": 20,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.PlaylistResponse": {
+      "properties": {
+        "collaborative": {
+          "example": false,
+          "type": "boolean"
+        },
+        "description": {
+          "example": "Your daily update of the most played tracks right now.",
+          "type": "string"
+        },
+        "episodes": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "externalUrl": {
+          "example": "https://open.spotify.com/playlist/37i9dQZEVXbLwpL8TjsxOG",
+          "type": "string"
+        },
+        "followers": {
+          "example": 17500000,
+          "type": "integer"
+        },
+        "id": {
+          "example": "37i9dQZEVXbLwpL8TjsxOG",
+          "type": "string"
+        },
+        "imageUrl": {
+          "example": "https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_default.jpg",
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "limit": {
+          "example": 20,
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.PlaylistMeta"
+        },
+        "name": {
+          "example": "Top 50 - Global",
+          "type": "string"
+        },
+        "offset": {
+          "example": 0,
+          "type": "integer"
+        },
+        "owner": {
+          "$ref": "#/definitions/spotify.SearchResultSummary"
+        },
+        "shareUrl": {
+          "example": "https://open.spotify.com/playlist/37i9dQZEVXbLwpL8TjsxOG",
+          "type": "string"
+        },
+        "total": {
+          "example": 50,
+          "type": "integer"
+        },
+        "tracks": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "type": {
+          "example": "Playlist",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:playlist:37i9dQZEVXbLwpL8TjsxOG",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.PodcastEpisodeMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:13Z",
+          "type": "string"
+        },
+        "operationName": {
+          "example": "getEpisodeOrChapter",
+          "type": "string"
+        },
+        "sourceUrl": {
+          "example": "https://open.spotify.com/episode/2C2Y5kNq7qCVOVhbA0G3os",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.PodcastEpisodeResponse": {
+      "properties": {
+        "description": {
+          "example": "A new adventure from the Stinky Dragon crew.",
+          "type": "string"
+        },
+        "durationMs": {
+          "example": 3600000,
+          "type": "integer"
+        },
+        "externalUrl": {
+          "example": "https://open.spotify.com/episode/2C2Y5kNq7qCVOVhbA0G3os",
+          "type": "string"
+        },
+        "htmlDescription": {
+          "example": "A new adventure from the Stinky Dragon crew.",
+          "type": "string"
+        },
+        "id": {
+          "example": "2C2Y5kNq7qCVOVhbA0G3os",
+          "type": "string"
+        },
+        "imageUrl": {
+          "example": "https://i.scdn.co/image/ab6765630000ba8ab0484f8ee2933eceab32bac0",
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        },
+        "isExplicit": {
+          "example": false,
+          "type": "boolean"
+        },
+        "isPaywallContent": {
+          "example": false,
+          "type": "boolean"
+        },
+        "isPlayable": {
+          "example": true,
+          "type": "boolean"
+        },
+        "mediaTypes": {
+          "example": [
+            "AUDIO"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.PodcastEpisodeMeta"
+        },
+        "name": {
+          "example": "Tales from the Stinky Dragon",
+          "type": "string"
+        },
+        "playabilityReason": {
+          "example": "PLAYABLE",
+          "type": "string"
+        },
+        "previewAudioUrl": {
+          "example": "https://p.scdn.co/mp3-preview/example",
+          "type": "string"
+        },
+        "previewAudioUrls": {
+          "example": [
+            "https://p.scdn.co/mp3-preview/example"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "previewVideoUrl": {
+          "example": "https://p.scdn.co/video-preview/example",
+          "type": "string"
+        },
+        "releaseDate": {
+          "example": "2026-05-13",
+          "type": "string"
+        },
+        "releaseDatePrecision": {
+          "example": "DAY",
+          "type": "string"
+        },
+        "shareUrl": {
+          "example": "https://open.spotify.com/episode/2C2Y5kNq7qCVOVhbA0G3os",
+          "type": "string"
+        },
+        "show": {
+          "$ref": "#/definitions/spotify.PodcastEpisodeShowSummary"
+        },
+        "transcriptCount": {
+          "example": 1,
+          "type": "integer"
+        },
+        "type": {
+          "example": "Episode",
+          "type": "string"
+        },
+        "unplayabilityReasons": {
+          "example": [
+            "not_available_in_region"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "uri": {
+          "example": "spotify:episode:2C2Y5kNq7qCVOVhbA0G3os",
+          "type": "string"
+        },
+        "videoThumbnailUrl": {
+          "example": "https://i.scdn.co/image/ab6765630000ba8ab0484f8ee2933eceab32bac0",
+          "type": "string"
+        },
+        "videoThumbnails": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.PodcastEpisodeShowSummary": {
+      "properties": {
+        "description": {
+          "example": "Tales from the Stinky Dragon is an actual-play comedy podcast.",
+          "type": "string"
+        },
+        "externalUrl": {
+          "example": "https://open.spotify.com/show/1QQJ7FElLE0K6CIfZNCxU4",
+          "type": "string"
+        },
+        "id": {
+          "example": "1QQJ7FElLE0K6CIfZNCxU4",
+          "type": "string"
+        },
+        "imageUrl": {
+          "example": "https://i.scdn.co/image/ab6765630000ba8ab0484f8ee2933eceab32bac0",
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        },
+        "mediaType": {
+          "example": "MIXED",
+          "type": "string"
+        },
+        "name": {
+          "example": "Tales from the Stinky Dragon",
+          "type": "string"
+        },
+        "publisher": {
+          "example": "Stinky Dragon",
+          "type": "string"
+        },
+        "showTypes": {
+          "example": [
+            "PODCAST"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": {
+          "example": "Podcast",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:show:1QQJ7FElLE0K6CIfZNCxU4",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.PodcastEpisodeSummary": {
+      "properties": {
+        "description": {
+          "example": "A new adventure from the Stinky Dragon crew.",
+          "type": "string"
+        },
+        "durationMs": {
+          "example": 3600000,
+          "type": "integer"
+        },
+        "externalUrl": {
+          "example": "https://open.spotify.com/episode/2C2Y5kNq7qCVOVhbA0G3os",
+          "type": "string"
+        },
+        "imageUrl": {
+          "example": "https://i.scdn.co/image/ab6765630000ba8ab0484f8ee2933eceab32bac0",
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        },
+        "isExplicit": {
+          "example": false,
+          "type": "boolean"
+        },
+        "isPlayable": {
+          "example": true,
+          "type": "boolean"
+        },
+        "name": {
+          "example": "Tales from the Stinky Dragon",
+          "type": "string"
+        },
+        "releaseDate": {
+          "example": "2026-05-13",
+          "type": "string"
+        },
+        "type": {
+          "example": "Episode",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:episode:2C2Y5kNq7qCVOVhbA0G3os",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.PodcastEpisodesMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:13Z",
+          "type": "string"
+        },
+        "operationName": {
+          "example": "queryPodcastEpisodes",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.PodcastEpisodesResponse": {
+      "properties": {
+        "episodes": {
+          "items": {
+            "$ref": "#/definitions/spotify.PodcastEpisodeSummary"
+          },
+          "type": "array"
+        },
+        "limit": {
+          "example": 20,
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.PodcastEpisodesMeta"
+        },
+        "offset": {
+          "example": 0,
+          "type": "integer"
+        },
+        "total": {
+          "example": 202,
+          "type": "integer"
+        },
+        "uri": {
+          "example": "spotify:show:1QQJ7FElLE0K6CIfZNCxU4",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.PopularCountry": {
+      "properties": {
+        "code": {
+          "example": "us",
+          "type": "string"
+        },
+        "name": {
+          "example": "United States",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.RecommendationSummary": {
+      "properties": {
+        "description": {
+          "example": "The official podcast of comedian Joe Rogan.",
+          "type": "string"
+        },
+        "externalUrl": {
+          "example": "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
+          "type": "string"
+        },
+        "imageUrl": {
+          "example": "https://i.scdn.co/image/ab67656300005f1f54e6837957803d762a3f4d2b",
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        },
+        "publisher": {
+          "example": "Joe Rogan",
+          "type": "string"
+        },
+        "subtitle": {
+          "example": "Joe Rogan",
+          "type": "string"
+        },
+        "title": {
+          "example": "The Joe Rogan Experience",
+          "type": "string"
+        },
+        "type": {
+          "example": "Podcast",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:show:4rOoJ6Egrf8K2IrywzwOMk",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.SearchMeta": {
+      "properties": {
+        "albumCount": {
+          "example": 3,
+          "type": "integer"
+        },
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "artistCount": {
+          "example": 5,
+          "type": "integer"
+        },
+        "audiobookCount": {
+          "example": 2,
+          "type": "integer"
+        },
+        "episodeCount": {
+          "example": 2,
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:12Z",
+          "type": "string"
+        },
+        "operationName": {
+          "example": "searchDesktop",
+          "type": "string"
+        },
+        "playlistCount": {
+          "example": 2,
+          "type": "integer"
+        },
+        "resultCount": {
+          "example": 22,
+          "type": "integer"
+        },
+        "showCount": {
+          "example": 4,
+          "type": "integer"
+        },
+        "topCount": {
+          "example": 3,
+          "type": "integer"
+        },
+        "trackCount": {
+          "example": 2,
+          "type": "integer"
+        },
+        "userCount": {
+          "example": 2,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.SearchPodcastsMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "episodeCount": {
+          "example": 2,
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:12Z",
+          "type": "string"
+        },
+        "operationName": {
+          "example": "searchPodcasts",
+          "type": "string"
+        },
+        "showCount": {
+          "example": 4,
+          "type": "integer"
+        },
+        "topCount": {
+          "example": 3,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.SearchPodcastsResponse": {
+      "properties": {
+        "episodes": {
+          "items": {
+            "$ref": "#/definitions/spotify.PodcastEpisodeSummary"
+          },
+          "type": "array"
+        },
+        "limit": {
+          "example": 20,
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.SearchPodcastsMeta"
+        },
+        "offset": {
+          "example": 0,
+          "type": "integer"
+        },
+        "searchTerm": {
+          "example": "hello",
+          "type": "string"
+        },
+        "shows": {
+          "items": {
+            "$ref": "#/definitions/spotify.RecommendationSummary"
+          },
+          "type": "array"
+        },
+        "topResults": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.SearchResponse": {
+      "properties": {
+        "albums": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "artists": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "audiobooks": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "episodes": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "limit": {
+          "example": 20,
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.SearchMeta"
+        },
+        "offset": {
+          "example": 0,
+          "type": "integer"
+        },
+        "playlists": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "searchTerm": {
+          "example": "hello",
+          "type": "string"
+        },
+        "shows": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "topResults": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "tracks": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "users": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.SearchResultSummary": {
+      "properties": {
+        "description": {
+          "example": "The official podcast of comedian Joe Rogan.",
+          "type": "string"
+        },
+        "externalUrl": {
+          "example": "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
+          "type": "string"
+        },
+        "imageUrl": {
+          "example": "https://i.scdn.co/image/ab67656300005f1f54e6837957803d762a3f4d2b",
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        },
+        "publisher": {
+          "example": "Joe Rogan",
+          "type": "string"
+        },
+        "subtitle": {
+          "example": "Joe Rogan",
+          "type": "string"
+        },
+        "title": {
+          "example": "The Joe Rogan Experience",
+          "type": "string"
+        },
+        "type": {
+          "example": "Podcast",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:show:4rOoJ6Egrf8K2IrywzwOMk",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ShowMetadataMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:13Z",
+          "type": "string"
+        },
+        "operationName": {
+          "example": "queryShowMetadataV2",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ShowMetadataResponse": {
+      "properties": {
+        "description": {
+          "example": "Tales from the Stinky Dragon is an actual-play comedy podcast.",
+          "type": "string"
+        },
+        "externalUrl": {
+          "example": "https://open.spotify.com/show/1QQJ7FElLE0K6CIfZNCxU4",
+          "type": "string"
+        },
+        "imageUrl": {
+          "example": "https://i.scdn.co/image/ab6765630000ba8ab0484f8ee2933eceab32bac0",
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        },
+        "isExplicit": {
+          "example": false,
+          "type": "boolean"
+        },
+        "mediaType": {
+          "example": "MIXED",
+          "type": "string"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.ShowMetadataMeta"
+        },
+        "name": {
+          "example": "Tales from the Stinky Dragon",
+          "type": "string"
+        },
+        "publisher": {
+          "example": "Stinky Dragon",
+          "type": "string"
+        },
+        "totalEpisodes": {
+          "example": 202,
+          "type": "integer"
+        },
+        "type": {
+          "example": "Podcast",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:show:1QQJ7FElLE0K6CIfZNCxU4",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ShowRecommendationsMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "count": {
+          "example": 10,
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:13Z",
+          "type": "string"
+        },
+        "operationName": {
+          "example": "internalLinkRecommenderShow",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.ShowRecommendationsResponse": {
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/spotify.ShowRecommendationsMeta"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/definitions/spotify.RecommendationSummary"
+          },
+          "type": "array"
+        },
+        "uri": {
+          "example": "spotify:show:1QQJ7FElLE0K6CIfZNCxU4",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.TrackMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:10Z",
+          "type": "string"
+        },
+        "operationName": {
+          "example": "getTrack",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.TrackRecommendedMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "count": {
+          "example": 10,
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:12Z",
+          "type": "string"
+        },
+        "operationName": {
+          "example": "internalLinkRecommenderTrack",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.TrackRecommendedResponse": {
+      "properties": {
+        "limit": {
+          "example": 10,
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.TrackRecommendedMeta"
+        },
+        "recommendations": {
+          "items": {
+            "$ref": "#/definitions/spotify.RecommendationSummary"
+          },
+          "type": "array"
+        },
+        "uri": {
+          "example": "spotify:track:4vGg44GdCw3X8i8r01XJH0",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.TrackResponse": {
+      "properties": {
+        "album": {
+          "$ref": "#/definitions/spotify.SearchResultSummary"
+        },
+        "artists": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "discNumber": {
+          "example": 1,
+          "type": "integer"
+        },
+        "durationMs": {
+          "example": 234083,
+          "type": "integer"
+        },
+        "externalUrl": {
+          "example": "https://open.spotify.com/track/4vGg44GdCw3X8i8r01XJH0",
+          "type": "string"
+        },
+        "id": {
+          "example": "4vGg44GdCw3X8i8r01XJH0",
+          "type": "string"
+        },
+        "imageUrl": {
+          "example": "https://i.scdn.co/image/ab67616d0000b273f377730d2a9c2e432139ac79",
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/spotify.ImageAsset"
+          },
+          "type": "array"
+        },
+        "isExplicit": {
+          "example": false,
+          "type": "boolean"
+        },
+        "isPlayable": {
+          "example": true,
+          "type": "boolean"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.TrackMeta"
+        },
+        "name": {
+          "example": "Example Track",
+          "type": "string"
+        },
+        "playabilityReason": {
+          "example": "PLAYABLE",
+          "type": "string"
+        },
+        "playcount": {
+          "example": "13129249",
+          "type": "string"
+        },
+        "previewAudioUrl": {
+          "example": "https://p.scdn.co/mp3-preview/example",
+          "type": "string"
+        },
+        "previewAudioUrls": {
+          "example": [
+            "https://p.scdn.co/mp3-preview/example"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "shareUrl": {
+          "example": "https://open.spotify.com/track/4vGg44GdCw3X8i8r01XJH0",
+          "type": "string"
+        },
+        "trackNumber": {
+          "example": 7,
+          "type": "integer"
+        },
+        "type": {
+          "example": "Track",
+          "type": "string"
+        },
+        "unplayabilityReasons": {
+          "example": [
+            "not_available_in_region"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "uri": {
+          "example": "spotify:track:4vGg44GdCw3X8i8r01XJH0",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.TrackSimilarAlbumsMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "count": {
+          "example": 10,
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:12Z",
+          "type": "string"
+        },
+        "operationName": {
+          "example": "similarAlbumsBasedOnThisTrack",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.TrackSimilarAlbumsResponse": {
+      "properties": {
+        "albums": {
+          "items": {
+            "$ref": "#/definitions/spotify.SearchResultSummary"
+          },
+          "type": "array"
+        },
+        "albumsOnly": {
+          "example": true,
+          "type": "boolean"
+        },
+        "limit": {
+          "example": 10,
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.TrackSimilarAlbumsMeta"
+        },
+        "uri": {
+          "example": "spotify:track:4vGg44GdCw3X8i8r01XJH0",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.UserProfileFollowersResponse": {
+      "properties": {
+        "limit": {
+          "example": 50,
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.UserProfileMeta"
+        },
+        "offset": {
+          "example": 0,
+          "type": "integer"
+        },
+        "profiles": {
+          "items": {
+            "$ref": "#/definitions/spotify.UserProfileSummary"
+          },
+          "type": "array"
+        },
+        "total": {
+          "example": 998,
+          "type": "integer"
+        },
+        "uri": {
+          "example": "spotify:user:spotify",
+          "type": "string"
+        },
+        "username": {
+          "example": "spotify",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.UserProfileMeta": {
+      "properties": {
+        "appVersion": {
+          "example": "1.2.90.403.gf901f20f",
+          "type": "string"
+        },
+        "artistCount": {
+          "example": 0,
+          "type": "integer"
+        },
+        "fetchedAt": {
+          "example": "2026-05-13T20:41:12Z",
+          "type": "string"
+        },
+        "operationName": {
+          "example": "userProfileView",
+          "type": "string"
+        },
+        "playlistCount": {
+          "example": 10,
+          "type": "integer"
+        },
+        "profileCount": {
+          "example": 50,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.UserProfilePlaylist": {
+      "properties": {
+        "externalUrl": {
+          "example": "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M",
+          "type": "string"
+        },
+        "followersCount": {
+          "example": 34324513,
+          "type": "integer"
+        },
+        "id": {
+          "example": "37i9dQZF1DXcBWIGoYBM5M",
+          "type": "string"
+        },
+        "imageUrl": {
+          "example": "https://i.scdn.co/image/ab67706f0000000273f7bb6e77ec5e23d7840ae5",
+          "type": "string"
+        },
+        "isFollowing": {
+          "example": false,
+          "type": "boolean"
+        },
+        "name": {
+          "example": "Today’s Top Hits",
+          "type": "string"
+        },
+        "ownerName": {
+          "example": "Spotify",
+          "type": "string"
+        },
+        "ownerUri": {
+          "example": "spotify:user:spotify",
+          "type": "string"
+        },
+        "ownerUrl": {
+          "example": "https://open.spotify.com/user/spotify",
+          "type": "string"
+        },
+        "ownerUsername": {
+          "example": "spotify",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:playlist:37i9dQZF1DXcBWIGoYBM5M",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.UserProfilePlaylistsResponse": {
+      "properties": {
+        "limit": {
+          "example": 20,
+          "type": "integer"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.UserProfileMeta"
+        },
+        "offset": {
+          "example": 0,
+          "type": "integer"
+        },
+        "publicPlaylists": {
+          "items": {
+            "$ref": "#/definitions/spotify.UserProfilePlaylist"
+          },
+          "type": "array"
+        },
+        "totalPublicPlaylistsCount": {
+          "example": 1519,
+          "type": "integer"
+        },
+        "uri": {
+          "example": "spotify:user:spotify",
+          "type": "string"
+        },
+        "username": {
+          "example": "spotify",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.UserProfileResponse": {
+      "properties": {
+        "allowFollows": {
+          "example": true,
+          "type": "boolean"
+        },
+        "color": {
+          "example": 16085920,
+          "type": "integer"
+        },
+        "externalUrl": {
+          "example": "https://open.spotify.com/user/spotify",
+          "type": "string"
+        },
+        "followersCount": {
+          "example": 12162371,
+          "type": "integer"
+        },
+        "followingCount": {
+          "example": 327,
+          "type": "integer"
+        },
+        "hasSpotifyImage": {
+          "example": true,
+          "type": "boolean"
+        },
+        "hasSpotifyName": {
+          "example": true,
+          "type": "boolean"
+        },
+        "imageUrl": {
+          "example": "https://i.scdn.co/image/ab6775700000ee8555c25988a6ac314394d3fbf5",
+          "type": "string"
+        },
+        "isCurrentUser": {
+          "example": false,
+          "type": "boolean"
+        },
+        "isVerified": {
+          "example": true,
+          "type": "boolean"
+        },
+        "meta": {
+          "$ref": "#/definitions/spotify.UserProfileMeta"
+        },
+        "name": {
+          "example": "Spotify",
+          "type": "string"
+        },
+        "publicPlaylists": {
+          "items": {
+            "$ref": "#/definitions/spotify.UserProfilePlaylist"
+          },
+          "type": "array"
+        },
+        "recentlyPlayedArtists": {
+          "items": {
+            "$ref": "#/definitions/spotify.UserProfileSummary"
+          },
+          "type": "array"
+        },
+        "showFollows": {
+          "example": true,
+          "type": "boolean"
+        },
+        "topArtists": {
+          "$ref": "#/definitions/spotify.UserProfileTopArtists"
+        },
+        "totalPublicPlaylistsCount": {
+          "example": 1519,
+          "type": "integer"
+        },
+        "uri": {
+          "example": "spotify:user:spotify",
+          "type": "string"
+        },
+        "username": {
+          "example": "spotify",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.UserProfileSummary": {
+      "properties": {
+        "color": {
+          "example": 16085920,
+          "type": "integer"
+        },
+        "externalUrl": {
+          "example": "https://open.spotify.com/user/example",
+          "type": "string"
+        },
+        "followersCount": {
+          "example": 1000,
+          "type": "integer"
+        },
+        "imageUrl": {
+          "example": "https://i.scdn.co/image/ab6775700000ee8555c25988a6ac314394d3fbf5",
+          "type": "string"
+        },
+        "isFollowing": {
+          "example": false,
+          "type": "boolean"
+        },
+        "name": {
+          "example": "Example",
+          "type": "string"
+        },
+        "uri": {
+          "example": "spotify:user:example",
+          "type": "string"
+        },
+        "username": {
+          "example": "example",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.UserProfileTopArtists": {
+      "properties": {
+        "imageUrl": {
+          "example": "https://i.scdn.co/image/ab6775700000ee8555c25988a6ac314394d3fbf5",
+          "type": "string"
+        },
+        "subtitle": {
+          "example": "Only visible to the user",
+          "type": "string"
+        },
+        "title": {
+          "example": "Top artists this month",
+          "type": "string"
+        },
+        "topArtistsPageUri": {
+          "example": "spotify:user:spotify:top:artists",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "spotify.albumResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.AlbumResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.artistAlbumsResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.ArtistAlbumsResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.artistCollectionResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.ArtistCollectionResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.artistResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.ArtistResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.audiobookChaptersResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.AudiobookChaptersResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.audiobookResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.AudiobookResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.browsePageResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.BrowsePageResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.browseSectionResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.BrowseSectionResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.chartsResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.ChartResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.countryHubContentResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.CountryHubContentResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.countryHubResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.CountryHubResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.episodeResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.PodcastEpisodeResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.homeResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.HomeResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.playlistResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.PlaylistResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.searchCatalogResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.SearchResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.searchResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.SearchPodcastsResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.showEpisodesResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.PodcastEpisodesResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.showRecommendationsResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.ShowRecommendationsResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.showResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.ShowMetadataResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.trackRecommendedResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.TrackRecommendedResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.trackResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.TrackResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.trackSimilarAlbumsResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.TrackSimilarAlbumsResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.userProfileFollowersResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.UserProfileFollowersResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.userProfilePlaylistsResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.UserProfilePlaylistsResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "spotify.userProfileResponseDoc": {
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "$ref": "#/definitions/spotify.UserProfileResponse"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "api.crawlora.net",
+  "info": {
+    "contact": {
+      "email": "support@crawlora.net",
+      "name": "API Support",
+      "url": "https://crawlora.net"
+    },
+    "description": "Crawlora is a hosted web-data and SERP API: call documented REST endpoints and get normalized JSON instead of HTML to parse — across search/SERP, maps and local, e-commerce, app stores, social, media and finance. One API key; Crawlora runs the proxy rotation, headless browsers and parsing behind the scenes. Billed pay-on-success: charged only on a successful 2xx response, 1-10 credits per call, with a free tier of 2,000 credits per month and no card. A hosted MCP server (mcp.crawlora.net/mcp) exposes the same catalog as agent tools. Search endpoints accept `q` as a universal alias for whichever search-term parameter they document (`query`, `term`, `keyword`, or Amazon's `k`), so one parameter name works across the whole catalog; an explicitly supplied documented name always wins.",
+    "license": {
+      "name": "Crawlora Terms of Service",
+      "url": "https://crawlora.net/terms"
+    },
+    "termsOfService": "https://crawlora.net/terms",
+    "title": "Crawlora API",
+    "version": "1.2",
+    "x-logo": {
+      "altText": "Crawlora",
+      "backgroundColor": "#FFFFFF",
+      "url": "https://raw.githubusercontent.com/Crawlora-org/crawlora-mcp/main/assets/logo-400x400.png"
+    }
+  },
+  "paths": {
+    "/spotify-podcasts/categories": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify podcast category sections and items from Spotify's all-categories browsePage Pathfinder response.",
+        "operationId": "spotify-podcasts-categories",
+        "parameters": [
+          {
+            "description": "Spotify podcast categories page URI",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:page:0JQ5DArNBzkmxXHCqFLx2U"
+          },
+          {
+            "description": "Page pagination offset",
+            "in": "query",
+            "name": "page_offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page pagination limit, clamped to 1-50",
+            "in": "query",
+            "name": "page_limit",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Section pagination offset",
+            "in": "query",
+            "name": "section_offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Section pagination limit, clamped to 1-50",
+            "in": "query",
+            "name": "section_limit",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.browsePageResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify Podcasts categories",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify-podcasts/charts": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify podcast chart rankings from podcastcharts.byspotify.com. The chart and region parameters are validated against Spotify's supported podcast chart slugs and countries. Category charts are available only in au, br, de, gb, mx, se, and us.",
+        "operationId": "spotify-podcasts-charts",
+        "parameters": [
+          {
+            "description": "Chart slug. Allowed: top-podcasts, top-episodes, trending, arts, business, comedy, education, fiction, health-fitness, history, leisure, music, news, religion-spirituality, science, society-culture, sports, technology, true-crime, tv-film",
+            "enum": [
+              "top-podcasts",
+              "top-episodes",
+              "trending",
+              "arts",
+              "business",
+              "comedy",
+              "education",
+              "fiction",
+              "health-fitness",
+              "history",
+              "leisure",
+              "music",
+              "news",
+              "religion-spirituality",
+              "science",
+              "society-culture",
+              "sports",
+              "technology",
+              "true-crime",
+              "tv-film"
+            ],
+            "in": "query",
+            "name": "chart",
+            "type": "string",
+            "x-example": "religion-spirituality"
+          },
+          {
+            "description": "Two-letter region code. Allowed: ar, au, at, br, ca, cl, co, dk, fi, fr, de, in, id, ie, it, jp, mx, nz, no, ph, pl, es, se, nl, gb, us",
+            "enum": [
+              "ar",
+              "au",
+              "at",
+              "br",
+              "ca",
+              "cl",
+              "co",
+              "dk",
+              "fi",
+              "fr",
+              "de",
+              "in",
+              "id",
+              "ie",
+              "it",
+              "jp",
+              "mx",
+              "nz",
+              "no",
+              "ph",
+              "pl",
+              "es",
+              "se",
+              "nl",
+              "gb",
+              "us"
+            ],
+            "in": "query",
+            "name": "region",
+            "type": "string",
+            "x-example": "us"
+          },
+          {
+            "description": "Result limit, clamped to 1-100",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 100
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.chartsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify podcast charts",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify-podcasts/episode": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized public episode metadata from Spotify's getEpisodeOrChapter Pathfinder response, with episode page, embed page, and anonymous oEmbed fallbacks when Pathfinder is unavailable. Provide either uri or id; defaults to a known public episode when omitted.",
+        "operationId": "spotify-podcasts-episode",
+        "parameters": [
+          {
+            "description": "Spotify episode URI or open.spotify.com episode URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:episode:2C2Y5kNq7qCVOVhbA0G3os"
+          },
+          {
+            "description": "Spotify episode ID. Used when uri is omitted",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "2C2Y5kNq7qCVOVhbA0G3os"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.episodeResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify podcast episode details",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify-podcasts/home": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized sections and items from Spotify's podcast home browsePage Pathfinder response.",
+        "operationId": "spotify-podcasts-home",
+        "parameters": [
+          {
+            "description": "Spotify page or genre URI",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:genre:podcasts-web"
+          },
+          {
+            "description": "Page pagination offset",
+            "in": "query",
+            "name": "page_offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page pagination limit, clamped to 1-50",
+            "in": "query",
+            "name": "page_limit",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Section pagination offset",
+            "in": "query",
+            "name": "section_offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Section pagination limit, clamped to 1-50",
+            "in": "query",
+            "name": "section_limit",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.browsePageResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify Podcasts home",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify-podcasts/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify podcast shows, episodes, and top results for a search term.",
+        "operationId": "spotify-podcasts-search",
+        "parameters": [
+          {
+            "description": "Podcast search term",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "chatgpt"
+          },
+          {
+            "description": "Search offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Result limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 30
+          },
+          {
+            "description": "Top result limit, clamped to 1-50",
+            "in": "query",
+            "name": "number_of_top_results",
+            "type": "integer",
+            "x-example": 20
+          },
+          {
+            "description": "Include pre-release results",
+            "in": "query",
+            "name": "include_pre_releases",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include album pre-release results",
+            "in": "query",
+            "name": "include_album_pre_releases",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include audiobooks",
+            "in": "query",
+            "name": "include_audiobooks",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "description": "Include authors",
+            "in": "query",
+            "name": "include_authors",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.searchResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Spotify Podcasts",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify-podcasts/show": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized podcast show metadata from Spotify Pathfinder.",
+        "operationId": "spotify-podcasts-show",
+        "parameters": [
+          {
+            "description": "Spotify show URI",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:show:1QQJ7FElLE0K6CIfZNCxU4"
+          },
+          {
+            "description": "Include content capability trait",
+            "in": "query",
+            "name": "include_content_capability_trait",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.showResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify podcast show metadata",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify-podcasts/show/episodes": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized podcast episodes for a Spotify show URI.",
+        "operationId": "spotify-podcasts-show-episodes",
+        "parameters": [
+          {
+            "description": "Spotify show URI",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:show:1QQJ7FElLE0K6CIfZNCxU4"
+          },
+          {
+            "description": "Episode offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Episode limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 50
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.showEpisodesResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify podcast show episodes",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify-podcasts/show/recommendations": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized related Spotify shows and episodes from Spotify's show recommendations response.",
+        "operationId": "spotify-podcasts-show-recommendations",
+        "parameters": [
+          {
+            "description": "Spotify show URI",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:show:1QQJ7FElLE0K6CIfZNCxU4"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.showRecommendationsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify podcast recommendations",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/album": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player album metadata and tracks from private Pathfinder responses.",
+        "operationId": "spotify-album",
+        "parameters": [
+          {
+            "description": "Spotify album URI or open.spotify.com album URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:album:4aawyAB9vmqN3uQ7FjRGTy"
+          },
+          {
+            "description": "Spotify album ID",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "4aawyAB9vmqN3uQ7FjRGTy"
+          },
+          {
+            "description": "Track offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Track limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 50
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.albumResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify album details",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/album/tracks": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player album tracks from private Pathfinder responses.",
+        "operationId": "spotify-album-tracks",
+        "parameters": [
+          {
+            "description": "Spotify album URI or open.spotify.com album URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:album:4aawyAB9vmqN3uQ7FjRGTy"
+          },
+          {
+            "description": "Spotify album ID",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "4aawyAB9vmqN3uQ7FjRGTy"
+          },
+          {
+            "description": "Track offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Track limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 50
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.albumResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify album tracks",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/albums/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player album search results for a search term. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "operationId": "spotify-albums-search",
+        "parameters": [
+          {
+            "description": "Search term",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "hello"
+          },
+          {
+            "description": "Search offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Album result limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 30
+          },
+          {
+            "description": "Top result limit, clamped to 1-50",
+            "in": "query",
+            "name": "number_of_top_results",
+            "type": "integer",
+            "x-example": 20
+          },
+          {
+            "description": "Include audiobook context where available",
+            "in": "query",
+            "name": "include_audiobooks",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "description": "Include pre-release results",
+            "in": "query",
+            "name": "include_pre_releases",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include album pre-release results",
+            "in": "query",
+            "name": "include_album_pre_releases",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include authors",
+            "in": "query",
+            "name": "include_authors",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.searchCatalogResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Spotify albums",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/artist": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player artist overview data from private Pathfinder responses.",
+        "operationId": "spotify-artist",
+        "parameters": [
+          {
+            "description": "Spotify artist URI or open.spotify.com artist URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:artist:0TnOYISbd1XYRBk9myaseg"
+          },
+          {
+            "description": "Spotify artist ID",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "0TnOYISbd1XYRBk9myaseg"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.artistResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify artist details",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/artist/albums": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns artist discography items from Spotify Web Player private Pathfinder responses.",
+        "operationId": "spotify-artist-albums",
+        "parameters": [
+          {
+            "description": "Spotify artist URI or open.spotify.com artist URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:artist:0TnOYISbd1XYRBk9myaseg"
+          },
+          {
+            "description": "Spotify artist ID",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "0TnOYISbd1XYRBk9myaseg"
+          },
+          {
+            "description": "album, single, compilation, appears_on, or all",
+            "enum": [
+              "album",
+              "single",
+              "compilation",
+              "appears_on",
+              "all"
+            ],
+            "in": "query",
+            "name": "type",
+            "type": "string",
+            "x-example": "album"
+          },
+          {
+            "description": "date_desc, date_asc, name_asc, or name_desc",
+            "enum": [
+              "date_desc",
+              "date_asc",
+              "name_asc",
+              "name_desc"
+            ],
+            "in": "query",
+            "name": "order",
+            "type": "string",
+            "x-example": "date_desc"
+          },
+          {
+            "description": "Offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 50
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.artistAlbumsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify artist albums",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/artist/playlists": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns artist playlists from Spotify Web Player private Pathfinder responses.",
+        "operationId": "spotify-artist-playlists",
+        "parameters": [
+          {
+            "description": "Spotify artist URI or open.spotify.com artist URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:artist:0TnOYISbd1XYRBk9myaseg"
+          },
+          {
+            "description": "Spotify artist ID",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "0TnOYISbd1XYRBk9myaseg"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.artistCollectionResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify artist playlists",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/artist/related": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns related artists from Spotify Web Player private Pathfinder responses.",
+        "operationId": "spotify-artist-related",
+        "parameters": [
+          {
+            "description": "Spotify artist URI or open.spotify.com artist URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:artist:0TnOYISbd1XYRBk9myaseg"
+          },
+          {
+            "description": "Spotify artist ID",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "0TnOYISbd1XYRBk9myaseg"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.artistCollectionResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify related artists",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/artists/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player artist search results for a search term.",
+        "operationId": "spotify-artists-search",
+        "parameters": [
+          {
+            "description": "Search term",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "hello"
+          },
+          {
+            "description": "Search offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Result limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 20
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.searchCatalogResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Spotify artists",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/audiobook": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns Spotify Web Player audiobook metadata from private Pathfinder responses. Spotify exposes audiobooks through show URIs.",
+        "operationId": "spotify-audiobook",
+        "parameters": [
+          {
+            "description": "Spotify audiobook/show URI or open.spotify.com show URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:show:76GTo4lM62dFR11VuALF01"
+          },
+          {
+            "description": "Spotify show ID",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "76GTo4lM62dFR11VuALF01"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.audiobookResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify audiobook details",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/audiobook/chapters": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns audiobook chapters from Spotify Web Player private Pathfinder responses.",
+        "operationId": "spotify-audiobook-chapters",
+        "parameters": [
+          {
+            "description": "Spotify audiobook/show URI or open.spotify.com show URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:show:76GTo4lM62dFR11VuALF01"
+          },
+          {
+            "description": "Spotify show ID",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "76GTo4lM62dFR11VuALF01"
+          },
+          {
+            "description": "Chapter offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Chapter limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 10
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.audiobookChaptersResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify audiobook chapters",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/audiobooks/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player audiobook search results for a search term. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "operationId": "spotify-audiobooks-search",
+        "parameters": [
+          {
+            "description": "Search term",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "hello"
+          },
+          {
+            "description": "Search offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Audiobook result limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 30
+          },
+          {
+            "description": "Top result limit, clamped to 1-50",
+            "in": "query",
+            "name": "number_of_top_results",
+            "type": "integer",
+            "x-example": 20
+          },
+          {
+            "description": "Include audiobook results",
+            "in": "query",
+            "name": "include_audiobooks",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "description": "Include pre-release results",
+            "in": "query",
+            "name": "include_pre_releases",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "description": "Include album pre-release results",
+            "in": "query",
+            "name": "include_album_pre_releases",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include authors",
+            "in": "query",
+            "name": "include_authors",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.searchCatalogResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Spotify audiobooks",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/chapter": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a Spotify chapter from the same private Pathfinder operation used for episodes and chapters.",
+        "operationId": "spotify-chapter",
+        "parameters": [
+          {
+            "description": "Spotify chapter or episode URI/URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:episode:2C2Y5kNq7qCVOVhbA0G3os"
+          },
+          {
+            "description": "Spotify chapter/episode ID",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "2C2Y5kNq7qCVOVhbA0G3os"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.episodeResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify audiobook chapter details",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/episodes/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player episode search results for a search term.",
+        "operationId": "spotify-episodes-search",
+        "parameters": [
+          {
+            "description": "Search term",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "hello"
+          },
+          {
+            "description": "Search offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Result limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 20
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.searchCatalogResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Spotify episodes",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/featured-charts-by-country": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify country hub content from Spotify's countryHubContent Pathfinder response. Defaults to the CHARTS content shelf for the requested country.",
+        "operationId": "spotify-featured-charts-by-country",
+        "parameters": [
+          {
+            "description": "Two-letter Spotify popular-in country code",
+            "in": "query",
+            "name": "country_code",
+            "type": "string",
+            "x-example": "id"
+          },
+          {
+            "description": "Country hub content ID. Allowed: CHARTS, POPULAR_ALBUMS, POPULAR_ARTISTS, TRENDING_SONGS",
+            "enum": [
+              "CHARTS",
+              "POPULAR_ALBUMS",
+              "POPULAR_ARTISTS",
+              "TRENDING_SONGS"
+            ],
+            "in": "query",
+            "name": "content_id",
+            "type": "string",
+            "x-example": "CHARTS"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.countryHubContentResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify featured charts by country",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/genre": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized sections and items from Spotify's browsePage Pathfinder response for a Spotify genre or page URI.",
+        "operationId": "spotify-genre",
+        "parameters": [
+          {
+            "description": "Spotify genre or page URI",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:page:0JQ5DAB3zgCauRwnvdEQjJ"
+          },
+          {
+            "description": "Page pagination offset",
+            "in": "query",
+            "name": "page_offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Page pagination limit, clamped to 1-50",
+            "in": "query",
+            "name": "page_limit",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Section pagination offset",
+            "in": "query",
+            "name": "section_offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Section pagination limit, clamped to 1-50",
+            "in": "query",
+            "name": "section_limit",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.browsePageResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify genre page",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/home": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized shelves and items from Spotify's Web Player home Pathfinder response. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "operationId": "spotify-home",
+        "parameters": [
+          {
+            "description": "IANA time zone used by Spotify home personalization",
+            "in": "query",
+            "name": "time_zone",
+            "type": "string",
+            "x-example": "Asia/Shanghai"
+          },
+          {
+            "description": "Optional Spotify session token. A random UUID is generated when omitted",
+            "in": "query",
+            "name": "sp_t",
+            "type": "string",
+            "x-example": "00000000-0000-4000-8000-000000000000"
+          },
+          {
+            "description": "Optional Spotify home facet",
+            "in": "query",
+            "name": "facet",
+            "type": "string",
+            "x-example": ""
+          },
+          {
+            "description": "Per-section item limit, clamped to 1-50",
+            "in": "query",
+            "name": "section_items_limit",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.homeResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify home sections",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/playlist": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player playlist metadata and items from Spotify's fetchPlaylist Pathfinder response. Provide either uri or id; defaults to a known public playlist when omitted.",
+        "operationId": "spotify-playlist",
+        "parameters": [
+          {
+            "description": "Spotify playlist URI or open.spotify.com playlist URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:playlist:37i9dQZEVXbLwpL8TjsxOG"
+          },
+          {
+            "description": "Spotify playlist ID. Used when uri is omitted",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "37i9dQZEVXbLwpL8TjsxOG"
+          },
+          {
+            "description": "Playlist item offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Playlist item limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 25
+          },
+          {
+            "description": "Enable watch feed entrypoint",
+            "in": "query",
+            "name": "enable_watch_feed_entrypoint",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.playlistResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify playlist details",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/playlists/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player playlist search results for a search term. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "operationId": "spotify-playlists-search",
+        "parameters": [
+          {
+            "description": "Search term",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "hello"
+          },
+          {
+            "description": "Search offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Playlist result limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 30
+          },
+          {
+            "description": "Top result limit, clamped to 1-50",
+            "in": "query",
+            "name": "number_of_top_results",
+            "type": "integer",
+            "x-example": 20
+          },
+          {
+            "description": "Include audiobook context where available",
+            "in": "query",
+            "name": "include_audiobooks",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "description": "Include pre-release results",
+            "in": "query",
+            "name": "include_pre_releases",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include album pre-release results",
+            "in": "query",
+            "name": "include_album_pre_releases",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include authors",
+            "in": "query",
+            "name": "include_authors",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.searchCatalogResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Spotify playlists",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/popular-by-country": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify country hub shelves from Spotify's countryHubsPage Pathfinder response. The country_code parameter accepts Spotify popular-in country codes from open.spotify.com/popular-in/us.",
+        "operationId": "spotify-popular-by-country",
+        "parameters": [
+          {
+            "description": "Two-letter Spotify popular-in country code",
+            "in": "query",
+            "name": "country_code",
+            "type": "string",
+            "x-example": "us"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.countryHubResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify popular by country",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/profile": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized public profile metadata and preview playlists from Spotify's Web Player user-profile service. Provide username, uri, or url; defaults to Spotify's official profile.",
+        "operationId": "spotify-profile",
+        "parameters": [
+          {
+            "description": "Spotify username",
+            "in": "query",
+            "name": "username",
+            "type": "string",
+            "x-example": "spotify"
+          },
+          {
+            "description": "Spotify user URI",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:user:spotify"
+          },
+          {
+            "description": "open.spotify.com user URL",
+            "in": "query",
+            "name": "url",
+            "type": "string",
+            "x-example": "https://open.spotify.com/user/spotify"
+          },
+          {
+            "description": "Embedded public playlist limit, clamped to 0-50",
+            "in": "query",
+            "name": "playlist_limit",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Recently played artist limit, clamped to 0-50",
+            "in": "query",
+            "name": "artist_limit",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Embedded episode limit, clamped to 0-50",
+            "in": "query",
+            "name": "episode_limit",
+            "type": "integer",
+            "x-example": 0
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.userProfileResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify public profile",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/profile/followers": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized public follower profiles from Spotify's Web Player user-profile service. Spotify exposes this as a public anonymous response for some profiles; private or restricted profiles may return an upstream error.",
+        "operationId": "spotify-profile-followers",
+        "parameters": [
+          {
+            "description": "Spotify username",
+            "in": "query",
+            "name": "username",
+            "type": "string",
+            "x-example": "spotify"
+          },
+          {
+            "description": "Spotify user URI",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:user:spotify"
+          },
+          {
+            "description": "open.spotify.com user URL",
+            "in": "query",
+            "name": "url",
+            "type": "string",
+            "x-example": "https://open.spotify.com/user/spotify"
+          },
+          {
+            "description": "Follower offset applied locally",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Follower limit, clamped to 1-200",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 50
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.userProfileFollowersResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify public profile followers",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/profile/playlists": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized public playlists from Spotify's Web Player user-profile service. Provide username, uri, or url; defaults to Spotify's official profile.",
+        "operationId": "spotify-profile-playlists",
+        "parameters": [
+          {
+            "description": "Spotify username",
+            "in": "query",
+            "name": "username",
+            "type": "string",
+            "x-example": "spotify"
+          },
+          {
+            "description": "Spotify user URI",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:user:spotify"
+          },
+          {
+            "description": "open.spotify.com user URL",
+            "in": "query",
+            "name": "url",
+            "type": "string",
+            "x-example": "https://open.spotify.com/user/spotify"
+          },
+          {
+            "description": "Playlist offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Playlist limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 20
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.userProfilePlaylistsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify public profile playlists",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/profiles/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player profile search results for a search term. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "operationId": "spotify-profiles-search",
+        "parameters": [
+          {
+            "description": "Search term",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "hello"
+          },
+          {
+            "description": "Search offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Profile result limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 30
+          },
+          {
+            "description": "Top result limit, clamped to 1-50",
+            "in": "query",
+            "name": "number_of_top_results",
+            "type": "integer",
+            "x-example": 20
+          },
+          {
+            "description": "Include audiobook context where available",
+            "in": "query",
+            "name": "include_audiobooks",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "description": "Include pre-release results",
+            "in": "query",
+            "name": "include_pre_releases",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include album pre-release results",
+            "in": "query",
+            "name": "include_album_pre_releases",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include authors",
+            "in": "query",
+            "name": "include_authors",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.searchCatalogResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Spotify profiles",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player catalog search results across tracks, artists, albums, playlists, shows, episodes, audiobooks, and top results. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "operationId": "spotify-search",
+        "parameters": [
+          {
+            "description": "Search term",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "hello"
+          },
+          {
+            "description": "Search offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Result limit per section, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 10
+          },
+          {
+            "description": "Top result limit, clamped to 1-50",
+            "in": "query",
+            "name": "number_of_top_results",
+            "type": "integer",
+            "x-example": 5
+          },
+          {
+            "description": "Include audiobook results",
+            "in": "query",
+            "name": "include_audiobooks",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "description": "Include artist concert availability fields",
+            "in": "query",
+            "name": "include_artist_has_concerts_field",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include pre-release results",
+            "in": "query",
+            "name": "include_pre_releases",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "description": "Include album pre-release results",
+            "in": "query",
+            "name": "include_album_pre_releases",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include authors",
+            "in": "query",
+            "name": "include_authors",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Treat the search term as a prefix",
+            "in": "query",
+            "name": "is_prefix",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.searchCatalogResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Spotify catalog",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/section": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized items from Spotify's browseSection Pathfinder response for a Spotify section URI.",
+        "operationId": "spotify-section",
+        "parameters": [
+          {
+            "description": "Spotify section URI",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:section:0JQ5IMCbQBLqNPkcmYxQPQ"
+          },
+          {
+            "description": "Section item offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Section item limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 20
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.browseSectionResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify browse section",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/shows/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player show search results for a search term.",
+        "operationId": "spotify-shows-search",
+        "parameters": [
+          {
+            "description": "Search term",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "hello"
+          },
+          {
+            "description": "Search offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Result limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 20
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.searchCatalogResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Spotify shows",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/track": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player track metadata from Spotify's getTrack Pathfinder response. Provide either uri or id; defaults to a known public track when omitted.",
+        "operationId": "spotify-track",
+        "parameters": [
+          {
+            "description": "Spotify track URI or open.spotify.com track URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:track:4vGg44GdCw3X8i8r01XJH0"
+          },
+          {
+            "description": "Spotify track ID. Used when uri is omitted",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "4vGg44GdCw3X8i8r01XJH0"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.trackResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify track details",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/track/recommended": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized recommended Spotify entities from the internalLinkRecommenderTrack Pathfinder response.",
+        "operationId": "spotify-track-recommended",
+        "parameters": [
+          {
+            "description": "Spotify track URI or open.spotify.com track URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:track:4vGg44GdCw3X8i8r01XJH0"
+          },
+          {
+            "description": "Spotify track ID. Used when uri is omitted",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "4vGg44GdCw3X8i8r01XJH0"
+          },
+          {
+            "description": "Recommendation limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 5
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.trackRecommendedResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify recommended tracks",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/track/similar-albums": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized albums from the similarAlbumsBasedOnThisTrack Pathfinder response.",
+        "operationId": "spotify-track-similar-albums",
+        "parameters": [
+          {
+            "description": "Spotify track URI or open.spotify.com track URL",
+            "in": "query",
+            "name": "uri",
+            "type": "string",
+            "x-example": "spotify:track:4vGg44GdCw3X8i8r01XJH0"
+          },
+          {
+            "description": "Spotify track ID. Used when uri is omitted",
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "x-example": "4vGg44GdCw3X8i8r01XJH0"
+          },
+          {
+            "description": "Album limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 50
+          },
+          {
+            "description": "Request albums-only recommendations",
+            "in": "query",
+            "name": "albums_only",
+            "type": "boolean",
+            "x-example": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.trackSimilarAlbumsResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Retrieve Spotify track similar albums",
+        "tags": [
+          "spotify"
+        ]
+      }
+    },
+    "/spotify/tracks/search": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns normalized Spotify Web Player track search results for a search term. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "operationId": "spotify-tracks-search",
+        "parameters": [
+          {
+            "description": "Search term",
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "type": "string",
+            "x-example": "hello"
+          },
+          {
+            "description": "Search offset",
+            "in": "query",
+            "name": "offset",
+            "type": "integer",
+            "x-example": 0
+          },
+          {
+            "description": "Track result limit, clamped to 1-50",
+            "in": "query",
+            "name": "limit",
+            "type": "integer",
+            "x-example": 20
+          },
+          {
+            "description": "Top result limit, clamped to 1-50",
+            "in": "query",
+            "name": "number_of_top_results",
+            "type": "integer",
+            "x-example": 20
+          },
+          {
+            "description": "Include audiobook context where available",
+            "in": "query",
+            "name": "include_audiobooks",
+            "type": "boolean",
+            "x-example": true
+          },
+          {
+            "description": "Include pre-release results",
+            "in": "query",
+            "name": "include_pre_releases",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include album pre-release results",
+            "in": "query",
+            "name": "include_album_pre_releases",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include authors",
+            "in": "query",
+            "name": "include_authors",
+            "type": "boolean",
+            "x-example": false
+          },
+          {
+            "description": "Include Spotify episode content ratings v2",
+            "in": "query",
+            "name": "include_episode_content_ratings_v2",
+            "type": "boolean",
+            "x-example": false
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/spotify.searchCatalogResponseDoc"
+            }
+          },
+          "400": {
+            "description": "Missing or invalid parameters",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Spotify upstream request failed",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "Search Spotify tracks",
+        "tags": [
+          "spotify"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "in": "header",
+      "name": "x-api-key",
+      "type": "apiKey"
+    }
+  },
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "spotify"
+    }
+  ]
+}

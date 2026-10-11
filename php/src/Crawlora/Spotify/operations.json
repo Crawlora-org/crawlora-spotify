@@ -1,0 +1,3040 @@
+{
+  "platform": "spotify",
+  "operationCount": 38,
+  "operationIds": [
+    "spotify-album",
+    "spotify-album-tracks",
+    "spotify-albums-search",
+    "spotify-artist",
+    "spotify-artist-albums",
+    "spotify-artist-playlists",
+    "spotify-artist-related",
+    "spotify-artists-search",
+    "spotify-audiobook",
+    "spotify-audiobook-chapters",
+    "spotify-audiobooks-search",
+    "spotify-chapter",
+    "spotify-episodes-search",
+    "spotify-featured-charts-by-country",
+    "spotify-genre",
+    "spotify-home",
+    "spotify-playlist",
+    "spotify-playlists-search",
+    "spotify-podcasts-categories",
+    "spotify-podcasts-charts",
+    "spotify-podcasts-episode",
+    "spotify-podcasts-home",
+    "spotify-podcasts-search",
+    "spotify-podcasts-show",
+    "spotify-podcasts-show-episodes",
+    "spotify-podcasts-show-recommendations",
+    "spotify-popular-by-country",
+    "spotify-profile",
+    "spotify-profile-followers",
+    "spotify-profile-playlists",
+    "spotify-profiles-search",
+    "spotify-search",
+    "spotify-section",
+    "spotify-shows-search",
+    "spotify-track",
+    "spotify-track-recommended",
+    "spotify-track-similar-albums",
+    "spotify-tracks-search"
+  ],
+  "methods": {
+    "podcasts_categories": "spotify-podcasts-categories",
+    "podcasts_charts": "spotify-podcasts-charts",
+    "podcasts_episode": "spotify-podcasts-episode",
+    "podcasts_home": "spotify-podcasts-home",
+    "podcasts_search": "spotify-podcasts-search",
+    "podcasts_show": "spotify-podcasts-show",
+    "podcasts_show_episodes": "spotify-podcasts-show-episodes",
+    "podcasts_show_recommendations": "spotify-podcasts-show-recommendations",
+    "album": "spotify-album",
+    "album_tracks": "spotify-album-tracks",
+    "albums_search": "spotify-albums-search",
+    "artist": "spotify-artist",
+    "artist_albums": "spotify-artist-albums",
+    "artist_playlists": "spotify-artist-playlists",
+    "artist_related": "spotify-artist-related",
+    "artists_search": "spotify-artists-search",
+    "audiobook": "spotify-audiobook",
+    "audiobook_chapters": "spotify-audiobook-chapters",
+    "audiobooks_search": "spotify-audiobooks-search",
+    "chapter": "spotify-chapter",
+    "episodes_search": "spotify-episodes-search",
+    "featured_charts_by_country": "spotify-featured-charts-by-country",
+    "genre": "spotify-genre",
+    "home": "spotify-home",
+    "playlist": "spotify-playlist",
+    "playlists_search": "spotify-playlists-search",
+    "popular_by_country": "spotify-popular-by-country",
+    "profile": "spotify-profile",
+    "profile_followers": "spotify-profile-followers",
+    "profile_playlists": "spotify-profile-playlists",
+    "profiles_search": "spotify-profiles-search",
+    "search": "spotify-search",
+    "section": "spotify-section",
+    "shows_search": "spotify-shows-search",
+    "track": "spotify-track",
+    "track_recommended": "spotify-track-recommended",
+    "track_similar_albums": "spotify-track-similar-albums",
+    "tracks_search": "spotify-tracks-search"
+  },
+  "operations": {
+    "spotify-podcasts-categories": {
+      "id": "spotify-podcasts-categories",
+      "method": "GET",
+      "path": "/spotify-podcasts/categories",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "page_offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "page_limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "section_offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "section_limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify podcast categories page URI",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:page:0JQ5DArNBzkmxXHCqFLx2U"
+        },
+        {
+          "description": "Page pagination offset",
+          "in": "query",
+          "name": "page_offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Page pagination limit, clamped to 1-50",
+          "in": "query",
+          "name": "page_limit",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Section pagination offset",
+          "in": "query",
+          "name": "section_offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Section pagination limit, clamped to 1-50",
+          "in": "query",
+          "name": "section_limit",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-podcasts-charts": {
+      "id": "spotify-podcasts-charts",
+      "method": "GET",
+      "path": "/spotify-podcasts/charts",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "chart",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "top-podcasts",
+            "top-episodes",
+            "trending",
+            "arts",
+            "business",
+            "comedy",
+            "education",
+            "fiction",
+            "health-fitness",
+            "history",
+            "leisure",
+            "music",
+            "news",
+            "religion-spirituality",
+            "science",
+            "society-culture",
+            "sports",
+            "technology",
+            "true-crime",
+            "tv-film"
+          ]
+        },
+        {
+          "name": "region",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "ar",
+            "au",
+            "at",
+            "br",
+            "ca",
+            "cl",
+            "co",
+            "dk",
+            "fi",
+            "fr",
+            "de",
+            "in",
+            "id",
+            "ie",
+            "it",
+            "jp",
+            "mx",
+            "nz",
+            "no",
+            "ph",
+            "pl",
+            "es",
+            "se",
+            "nl",
+            "gb",
+            "us"
+          ]
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Chart slug. Allowed: top-podcasts, top-episodes, trending, arts, business, comedy, education, fiction, health-fitness, history, leisure, music, news, religion-spirituality, science, society-culture, sports, technology, true-crime, tv-film",
+          "enum": [
+            "top-podcasts",
+            "top-episodes",
+            "trending",
+            "arts",
+            "business",
+            "comedy",
+            "education",
+            "fiction",
+            "health-fitness",
+            "history",
+            "leisure",
+            "music",
+            "news",
+            "religion-spirituality",
+            "science",
+            "society-culture",
+            "sports",
+            "technology",
+            "true-crime",
+            "tv-film"
+          ],
+          "in": "query",
+          "name": "chart",
+          "type": "string",
+          "x-example": "religion-spirituality"
+        },
+        {
+          "description": "Two-letter region code. Allowed: ar, au, at, br, ca, cl, co, dk, fi, fr, de, in, id, ie, it, jp, mx, nz, no, ph, pl, es, se, nl, gb, us",
+          "enum": [
+            "ar",
+            "au",
+            "at",
+            "br",
+            "ca",
+            "cl",
+            "co",
+            "dk",
+            "fi",
+            "fr",
+            "de",
+            "in",
+            "id",
+            "ie",
+            "it",
+            "jp",
+            "mx",
+            "nz",
+            "no",
+            "ph",
+            "pl",
+            "es",
+            "se",
+            "nl",
+            "gb",
+            "us"
+          ],
+          "in": "query",
+          "name": "region",
+          "type": "string",
+          "x-example": "us"
+        },
+        {
+          "description": "Result limit, clamped to 1-100",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 100
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-podcasts-episode": {
+      "id": "spotify-podcasts-episode",
+      "method": "GET",
+      "path": "/spotify-podcasts/episode",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify episode URI or open.spotify.com episode URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:episode:2C2Y5kNq7qCVOVhbA0G3os"
+        },
+        {
+          "description": "Spotify episode ID. Used when uri is omitted",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "2C2Y5kNq7qCVOVhbA0G3os"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-podcasts-home": {
+      "id": "spotify-podcasts-home",
+      "method": "GET",
+      "path": "/spotify-podcasts/home",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "page_offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "page_limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "section_offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "section_limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify page or genre URI",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:genre:podcasts-web"
+        },
+        {
+          "description": "Page pagination offset",
+          "in": "query",
+          "name": "page_offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Page pagination limit, clamped to 1-50",
+          "in": "query",
+          "name": "page_limit",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Section pagination offset",
+          "in": "query",
+          "name": "section_offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Section pagination limit, clamped to 1-50",
+          "in": "query",
+          "name": "section_limit",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-podcasts-search": {
+      "id": "spotify-podcasts-search",
+      "method": "GET",
+      "path": "/spotify-podcasts/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "number_of_top_results",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "include_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_album_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_audiobooks",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_authors",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Podcast search term",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "chatgpt"
+        },
+        {
+          "description": "Search offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Result limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 30
+        },
+        {
+          "description": "Top result limit, clamped to 1-50",
+          "in": "query",
+          "name": "number_of_top_results",
+          "type": "integer",
+          "x-example": 20
+        },
+        {
+          "description": "Include pre-release results",
+          "in": "query",
+          "name": "include_pre_releases",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include album pre-release results",
+          "in": "query",
+          "name": "include_album_pre_releases",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include audiobooks",
+          "in": "query",
+          "name": "include_audiobooks",
+          "type": "boolean",
+          "x-example": true
+        },
+        {
+          "description": "Include authors",
+          "in": "query",
+          "name": "include_authors",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-podcasts-show": {
+      "id": "spotify-podcasts-show",
+      "method": "GET",
+      "path": "/spotify-podcasts/show",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "include_content_capability_trait",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify show URI",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:show:1QQJ7FElLE0K6CIfZNCxU4"
+        },
+        {
+          "description": "Include content capability trait",
+          "in": "query",
+          "name": "include_content_capability_trait",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-podcasts-show-episodes": {
+      "id": "spotify-podcasts-show-episodes",
+      "method": "GET",
+      "path": "/spotify-podcasts/show/episodes",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify show URI",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:show:1QQJ7FElLE0K6CIfZNCxU4"
+        },
+        {
+          "description": "Episode offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Episode limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 50
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-podcasts-show-recommendations": {
+      "id": "spotify-podcasts-show-recommendations",
+      "method": "GET",
+      "path": "/spotify-podcasts/show/recommendations",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify show URI",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:show:1QQJ7FElLE0K6CIfZNCxU4"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-album": {
+      "id": "spotify-album",
+      "method": "GET",
+      "path": "/spotify/album",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify album URI or open.spotify.com album URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:album:4aawyAB9vmqN3uQ7FjRGTy"
+        },
+        {
+          "description": "Spotify album ID",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "4aawyAB9vmqN3uQ7FjRGTy"
+        },
+        {
+          "description": "Track offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Track limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 50
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-album-tracks": {
+      "id": "spotify-album-tracks",
+      "method": "GET",
+      "path": "/spotify/album/tracks",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify album URI or open.spotify.com album URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:album:4aawyAB9vmqN3uQ7FjRGTy"
+        },
+        {
+          "description": "Spotify album ID",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "4aawyAB9vmqN3uQ7FjRGTy"
+        },
+        {
+          "description": "Track offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Track limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 50
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-albums-search": {
+      "id": "spotify-albums-search",
+      "method": "GET",
+      "path": "/spotify/albums/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "number_of_top_results",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "include_audiobooks",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_album_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_authors",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search term",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "hello"
+        },
+        {
+          "description": "Search offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Album result limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 30
+        },
+        {
+          "description": "Top result limit, clamped to 1-50",
+          "in": "query",
+          "name": "number_of_top_results",
+          "type": "integer",
+          "x-example": 20
+        },
+        {
+          "description": "Include audiobook context where available",
+          "in": "query",
+          "name": "include_audiobooks",
+          "type": "boolean",
+          "x-example": true
+        },
+        {
+          "description": "Include pre-release results",
+          "in": "query",
+          "name": "include_pre_releases",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include album pre-release results",
+          "in": "query",
+          "name": "include_album_pre_releases",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include authors",
+          "in": "query",
+          "name": "include_authors",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-artist": {
+      "id": "spotify-artist",
+      "method": "GET",
+      "path": "/spotify/artist",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify artist URI or open.spotify.com artist URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:artist:0TnOYISbd1XYRBk9myaseg"
+        },
+        {
+          "description": "Spotify artist ID",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "0TnOYISbd1XYRBk9myaseg"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-artist-albums": {
+      "id": "spotify-artist-albums",
+      "method": "GET",
+      "path": "/spotify/artist/albums",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "album",
+            "single",
+            "compilation",
+            "appears_on",
+            "all"
+          ]
+        },
+        {
+          "name": "order",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "date_desc",
+            "date_asc",
+            "name_asc",
+            "name_desc"
+          ]
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify artist URI or open.spotify.com artist URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:artist:0TnOYISbd1XYRBk9myaseg"
+        },
+        {
+          "description": "Spotify artist ID",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "0TnOYISbd1XYRBk9myaseg"
+        },
+        {
+          "description": "album, single, compilation, appears_on, or all",
+          "enum": [
+            "album",
+            "single",
+            "compilation",
+            "appears_on",
+            "all"
+          ],
+          "in": "query",
+          "name": "type",
+          "type": "string",
+          "x-example": "album"
+        },
+        {
+          "description": "date_desc, date_asc, name_asc, or name_desc",
+          "enum": [
+            "date_desc",
+            "date_asc",
+            "name_asc",
+            "name_desc"
+          ],
+          "in": "query",
+          "name": "order",
+          "type": "string",
+          "x-example": "date_desc"
+        },
+        {
+          "description": "Offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 50
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-artist-playlists": {
+      "id": "spotify-artist-playlists",
+      "method": "GET",
+      "path": "/spotify/artist/playlists",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify artist URI or open.spotify.com artist URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:artist:0TnOYISbd1XYRBk9myaseg"
+        },
+        {
+          "description": "Spotify artist ID",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "0TnOYISbd1XYRBk9myaseg"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-artist-related": {
+      "id": "spotify-artist-related",
+      "method": "GET",
+      "path": "/spotify/artist/related",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify artist URI or open.spotify.com artist URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:artist:0TnOYISbd1XYRBk9myaseg"
+        },
+        {
+          "description": "Spotify artist ID",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "0TnOYISbd1XYRBk9myaseg"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-artists-search": {
+      "id": "spotify-artists-search",
+      "method": "GET",
+      "path": "/spotify/artists/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search term",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "hello"
+        },
+        {
+          "description": "Search offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Result limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 20
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-audiobook": {
+      "id": "spotify-audiobook",
+      "method": "GET",
+      "path": "/spotify/audiobook",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify audiobook/show URI or open.spotify.com show URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:show:76GTo4lM62dFR11VuALF01"
+        },
+        {
+          "description": "Spotify show ID",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "76GTo4lM62dFR11VuALF01"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-audiobook-chapters": {
+      "id": "spotify-audiobook-chapters",
+      "method": "GET",
+      "path": "/spotify/audiobook/chapters",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify audiobook/show URI or open.spotify.com show URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:show:76GTo4lM62dFR11VuALF01"
+        },
+        {
+          "description": "Spotify show ID",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "76GTo4lM62dFR11VuALF01"
+        },
+        {
+          "description": "Chapter offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Chapter limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 10
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-audiobooks-search": {
+      "id": "spotify-audiobooks-search",
+      "method": "GET",
+      "path": "/spotify/audiobooks/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "number_of_top_results",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "include_audiobooks",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_album_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_authors",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search term",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "hello"
+        },
+        {
+          "description": "Search offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Audiobook result limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 30
+        },
+        {
+          "description": "Top result limit, clamped to 1-50",
+          "in": "query",
+          "name": "number_of_top_results",
+          "type": "integer",
+          "x-example": 20
+        },
+        {
+          "description": "Include audiobook results",
+          "in": "query",
+          "name": "include_audiobooks",
+          "type": "boolean",
+          "x-example": true
+        },
+        {
+          "description": "Include pre-release results",
+          "in": "query",
+          "name": "include_pre_releases",
+          "type": "boolean",
+          "x-example": true
+        },
+        {
+          "description": "Include album pre-release results",
+          "in": "query",
+          "name": "include_album_pre_releases",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include authors",
+          "in": "query",
+          "name": "include_authors",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-chapter": {
+      "id": "spotify-chapter",
+      "method": "GET",
+      "path": "/spotify/chapter",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify chapter or episode URI/URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:episode:2C2Y5kNq7qCVOVhbA0G3os"
+        },
+        {
+          "description": "Spotify chapter/episode ID",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "2C2Y5kNq7qCVOVhbA0G3os"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-episodes-search": {
+      "id": "spotify-episodes-search",
+      "method": "GET",
+      "path": "/spotify/episodes/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search term",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "hello"
+        },
+        {
+          "description": "Search offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Result limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 20
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-featured-charts-by-country": {
+      "id": "spotify-featured-charts-by-country",
+      "method": "GET",
+      "path": "/spotify/featured-charts-by-country",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "country_code",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "content_id",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "CHARTS",
+            "POPULAR_ALBUMS",
+            "POPULAR_ARTISTS",
+            "TRENDING_SONGS"
+          ]
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Two-letter Spotify popular-in country code",
+          "in": "query",
+          "name": "country_code",
+          "type": "string",
+          "x-example": "id"
+        },
+        {
+          "description": "Country hub content ID. Allowed: CHARTS, POPULAR_ALBUMS, POPULAR_ARTISTS, TRENDING_SONGS",
+          "enum": [
+            "CHARTS",
+            "POPULAR_ALBUMS",
+            "POPULAR_ARTISTS",
+            "TRENDING_SONGS"
+          ],
+          "in": "query",
+          "name": "content_id",
+          "type": "string",
+          "x-example": "CHARTS"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-genre": {
+      "id": "spotify-genre",
+      "method": "GET",
+      "path": "/spotify/genre",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "page_offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "page_limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "section_offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "section_limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify genre or page URI",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:page:0JQ5DAB3zgCauRwnvdEQjJ"
+        },
+        {
+          "description": "Page pagination offset",
+          "in": "query",
+          "name": "page_offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Page pagination limit, clamped to 1-50",
+          "in": "query",
+          "name": "page_limit",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Section pagination offset",
+          "in": "query",
+          "name": "section_offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Section pagination limit, clamped to 1-50",
+          "in": "query",
+          "name": "section_limit",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-home": {
+      "id": "spotify-home",
+      "method": "GET",
+      "path": "/spotify/home",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "time_zone",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "sp_t",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "facet",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "section_items_limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "IANA time zone used by Spotify home personalization",
+          "in": "query",
+          "name": "time_zone",
+          "type": "string",
+          "x-example": "Asia/Shanghai"
+        },
+        {
+          "description": "Optional Spotify session token. A random UUID is generated when omitted",
+          "in": "query",
+          "name": "sp_t",
+          "type": "string",
+          "x-example": "00000000-0000-4000-8000-000000000000"
+        },
+        {
+          "description": "Optional Spotify home facet",
+          "in": "query",
+          "name": "facet",
+          "type": "string",
+          "x-example": ""
+        },
+        {
+          "description": "Per-section item limit, clamped to 1-50",
+          "in": "query",
+          "name": "section_items_limit",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-playlist": {
+      "id": "spotify-playlist",
+      "method": "GET",
+      "path": "/spotify/playlist",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "enable_watch_feed_entrypoint",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify playlist URI or open.spotify.com playlist URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:playlist:37i9dQZEVXbLwpL8TjsxOG"
+        },
+        {
+          "description": "Spotify playlist ID. Used when uri is omitted",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "37i9dQZEVXbLwpL8TjsxOG"
+        },
+        {
+          "description": "Playlist item offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Playlist item limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 25
+        },
+        {
+          "description": "Enable watch feed entrypoint",
+          "in": "query",
+          "name": "enable_watch_feed_entrypoint",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-playlists-search": {
+      "id": "spotify-playlists-search",
+      "method": "GET",
+      "path": "/spotify/playlists/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "number_of_top_results",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "include_audiobooks",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_album_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_authors",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search term",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "hello"
+        },
+        {
+          "description": "Search offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Playlist result limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 30
+        },
+        {
+          "description": "Top result limit, clamped to 1-50",
+          "in": "query",
+          "name": "number_of_top_results",
+          "type": "integer",
+          "x-example": 20
+        },
+        {
+          "description": "Include audiobook context where available",
+          "in": "query",
+          "name": "include_audiobooks",
+          "type": "boolean",
+          "x-example": true
+        },
+        {
+          "description": "Include pre-release results",
+          "in": "query",
+          "name": "include_pre_releases",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include album pre-release results",
+          "in": "query",
+          "name": "include_album_pre_releases",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include authors",
+          "in": "query",
+          "name": "include_authors",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-popular-by-country": {
+      "id": "spotify-popular-by-country",
+      "method": "GET",
+      "path": "/spotify/popular-by-country",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "country_code",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Two-letter Spotify popular-in country code",
+          "in": "query",
+          "name": "country_code",
+          "type": "string",
+          "x-example": "us"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-profile": {
+      "id": "spotify-profile",
+      "method": "GET",
+      "path": "/spotify/profile",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "username",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "playlist_limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "artist_limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "episode_limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify username",
+          "in": "query",
+          "name": "username",
+          "type": "string",
+          "x-example": "spotify"
+        },
+        {
+          "description": "Spotify user URI",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:user:spotify"
+        },
+        {
+          "description": "open.spotify.com user URL",
+          "in": "query",
+          "name": "url",
+          "type": "string",
+          "x-example": "https://open.spotify.com/user/spotify"
+        },
+        {
+          "description": "Embedded public playlist limit, clamped to 0-50",
+          "in": "query",
+          "name": "playlist_limit",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Recently played artist limit, clamped to 0-50",
+          "in": "query",
+          "name": "artist_limit",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Embedded episode limit, clamped to 0-50",
+          "in": "query",
+          "name": "episode_limit",
+          "type": "integer",
+          "x-example": 0
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-profile-followers": {
+      "id": "spotify-profile-followers",
+      "method": "GET",
+      "path": "/spotify/profile/followers",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "username",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify username",
+          "in": "query",
+          "name": "username",
+          "type": "string",
+          "x-example": "spotify"
+        },
+        {
+          "description": "Spotify user URI",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:user:spotify"
+        },
+        {
+          "description": "open.spotify.com user URL",
+          "in": "query",
+          "name": "url",
+          "type": "string",
+          "x-example": "https://open.spotify.com/user/spotify"
+        },
+        {
+          "description": "Follower offset applied locally",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Follower limit, clamped to 1-200",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 50
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-profile-playlists": {
+      "id": "spotify-profile-playlists",
+      "method": "GET",
+      "path": "/spotify/profile/playlists",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "username",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "url",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify username",
+          "in": "query",
+          "name": "username",
+          "type": "string",
+          "x-example": "spotify"
+        },
+        {
+          "description": "Spotify user URI",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:user:spotify"
+        },
+        {
+          "description": "open.spotify.com user URL",
+          "in": "query",
+          "name": "url",
+          "type": "string",
+          "x-example": "https://open.spotify.com/user/spotify"
+        },
+        {
+          "description": "Playlist offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Playlist limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 20
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-profiles-search": {
+      "id": "spotify-profiles-search",
+      "method": "GET",
+      "path": "/spotify/profiles/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "number_of_top_results",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "include_audiobooks",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_album_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_authors",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search term",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "hello"
+        },
+        {
+          "description": "Search offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Profile result limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 30
+        },
+        {
+          "description": "Top result limit, clamped to 1-50",
+          "in": "query",
+          "name": "number_of_top_results",
+          "type": "integer",
+          "x-example": 20
+        },
+        {
+          "description": "Include audiobook context where available",
+          "in": "query",
+          "name": "include_audiobooks",
+          "type": "boolean",
+          "x-example": true
+        },
+        {
+          "description": "Include pre-release results",
+          "in": "query",
+          "name": "include_pre_releases",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include album pre-release results",
+          "in": "query",
+          "name": "include_album_pre_releases",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include authors",
+          "in": "query",
+          "name": "include_authors",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-search": {
+      "id": "spotify-search",
+      "method": "GET",
+      "path": "/spotify/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "number_of_top_results",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "include_audiobooks",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_artist_has_concerts_field",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_album_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_authors",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "is_prefix",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search term",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "hello"
+        },
+        {
+          "description": "Search offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Result limit per section, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 10
+        },
+        {
+          "description": "Top result limit, clamped to 1-50",
+          "in": "query",
+          "name": "number_of_top_results",
+          "type": "integer",
+          "x-example": 5
+        },
+        {
+          "description": "Include audiobook results",
+          "in": "query",
+          "name": "include_audiobooks",
+          "type": "boolean",
+          "x-example": true
+        },
+        {
+          "description": "Include artist concert availability fields",
+          "in": "query",
+          "name": "include_artist_has_concerts_field",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include pre-release results",
+          "in": "query",
+          "name": "include_pre_releases",
+          "type": "boolean",
+          "x-example": true
+        },
+        {
+          "description": "Include album pre-release results",
+          "in": "query",
+          "name": "include_album_pre_releases",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include authors",
+          "in": "query",
+          "name": "include_authors",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Treat the search term as a prefix",
+          "in": "query",
+          "name": "is_prefix",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-section": {
+      "id": "spotify-section",
+      "method": "GET",
+      "path": "/spotify/section",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify section URI",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:section:0JQ5IMCbQBLqNPkcmYxQPQ"
+        },
+        {
+          "description": "Section item offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Section item limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 20
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-shows-search": {
+      "id": "spotify-shows-search",
+      "method": "GET",
+      "path": "/spotify/shows/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search term",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "hello"
+        },
+        {
+          "description": "Search offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Result limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 20
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-track": {
+      "id": "spotify-track",
+      "method": "GET",
+      "path": "/spotify/track",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify track URI or open.spotify.com track URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:track:4vGg44GdCw3X8i8r01XJH0"
+        },
+        {
+          "description": "Spotify track ID. Used when uri is omitted",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "4vGg44GdCw3X8i8r01XJH0"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-track-recommended": {
+      "id": "spotify-track-recommended",
+      "method": "GET",
+      "path": "/spotify/track/recommended",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify track URI or open.spotify.com track URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:track:4vGg44GdCw3X8i8r01XJH0"
+        },
+        {
+          "description": "Spotify track ID. Used when uri is omitted",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "4vGg44GdCw3X8i8r01XJH0"
+        },
+        {
+          "description": "Recommendation limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 5
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-track-similar-albums": {
+      "id": "spotify-track-similar-albums",
+      "method": "GET",
+      "path": "/spotify/track/similar-albums",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "uri",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "albums_only",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Spotify track URI or open.spotify.com track URL",
+          "in": "query",
+          "name": "uri",
+          "type": "string",
+          "x-example": "spotify:track:4vGg44GdCw3X8i8r01XJH0"
+        },
+        {
+          "description": "Spotify track ID. Used when uri is omitted",
+          "in": "query",
+          "name": "id",
+          "type": "string",
+          "x-example": "4vGg44GdCw3X8i8r01XJH0"
+        },
+        {
+          "description": "Album limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 50
+        },
+        {
+          "description": "Request albums-only recommendations",
+          "in": "query",
+          "name": "albums_only",
+          "type": "boolean",
+          "x-example": true
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "spotify-tracks-search": {
+      "id": "spotify-tracks-search",
+      "method": "GET",
+      "path": "/spotify/tracks/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "number_of_top_results",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "include_audiobooks",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_album_pre_releases",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_authors",
+          "in": "query",
+          "type": "boolean"
+        },
+        {
+          "name": "include_episode_content_ratings_v2",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Search term",
+          "in": "query",
+          "name": "q",
+          "required": true,
+          "type": "string",
+          "x-example": "hello"
+        },
+        {
+          "description": "Search offset",
+          "in": "query",
+          "name": "offset",
+          "type": "integer",
+          "x-example": 0
+        },
+        {
+          "description": "Track result limit, clamped to 1-50",
+          "in": "query",
+          "name": "limit",
+          "type": "integer",
+          "x-example": 20
+        },
+        {
+          "description": "Top result limit, clamped to 1-50",
+          "in": "query",
+          "name": "number_of_top_results",
+          "type": "integer",
+          "x-example": 20
+        },
+        {
+          "description": "Include audiobook context where available",
+          "in": "query",
+          "name": "include_audiobooks",
+          "type": "boolean",
+          "x-example": true
+        },
+        {
+          "description": "Include pre-release results",
+          "in": "query",
+          "name": "include_pre_releases",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include album pre-release results",
+          "in": "query",
+          "name": "include_album_pre_releases",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include authors",
+          "in": "query",
+          "name": "include_authors",
+          "type": "boolean",
+          "x-example": false
+        },
+        {
+          "description": "Include Spotify episode content ratings v2",
+          "in": "query",
+          "name": "include_episode_content_ratings_v2",
+          "type": "boolean",
+          "x-example": false
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    }
+  }
+}
