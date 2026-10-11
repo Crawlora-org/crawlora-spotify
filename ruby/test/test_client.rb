@@ -15,7 +15,7 @@ class PlatformClientTest < Minitest::Test
       transport: transport
     )
 
-    result = client.request("spotify-podcasts-search", JSON.parse("{\"q\": \"sample\"}"))
+    result = client.request("spotify-search", JSON.parse("{\"q\": \"sample\"}"))
     assert_equal({ "ok" => true }, result)
     assert_equal 1, calls.length
     assert_includes calls.first[0], "/spotify/"

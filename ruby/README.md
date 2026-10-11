@@ -15,7 +15,7 @@ require "json"
 require "crawlora/spotify"
 
 client = Crawlora::Spotify::Client.new
-result = client.request("spotify-podcasts-search", JSON.parse("{\"q\": \"sample\"}"))
+result = client.request("spotify-search", JSON.parse("{\"q\": \"sample\"}"))
 puts result
 client.close
 ```

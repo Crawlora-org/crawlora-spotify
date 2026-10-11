@@ -15,7 +15,7 @@ Create an account at [crawlora.net](https://crawlora.net/signup?utm_source=packa
 require __DIR__ . '/vendor/autoload.php';
 
 $client = new Crawlora\Spotify\Client(apiKey: getenv('CRAWLORA_API_KEY'));
-$result = $client->request("spotify-podcasts-search", ['q' => 'sample']);
+$result = $client->request("spotify-search", ['q' => 'sample']);
 print_r($result);
 $client->close();
 ```

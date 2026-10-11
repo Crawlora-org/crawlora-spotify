@@ -13,7 +13,7 @@ $client = new Crawlora\Spotify\Client(
     baseUrl: 'https://api.example.test/api/v1',
     transport: $transport,
 );
-$result = $client->request("spotify-podcasts-search", ['q' => 'sample']);
+$result = $client->request("spotify-search", ['q' => 'sample']);
 if ($result !== ['ok' => true]) {
     throw new RuntimeException('Expected the mocked JSON response.');
 }
@@ -35,7 +35,7 @@ $defaultClient = new Crawlora\Spotify\Client(
         return ['status' => 200, 'content_type' => 'application/json', 'body' => '{"ok":true}'];
     },
 );
-$defaultClient->request("spotify-podcasts-search", ['q' => 'sample']);
+$defaultClient->request("spotify-search", ['q' => 'sample']);
 try {
     $client->request('unlisted-operation');
     throw new RuntimeException('An unlisted operation was accepted.');
