@@ -132,6 +132,8 @@ def emit(root: Path, config: dict[str, Any], spec: dict[str, Any], assets: Path)
     package = Path(root) / "ruby"
     lib = package / "lib" / "crawlora" / platform
     lib.mkdir(parents=True, exist_ok=True)
+    from .documentation import endpoint_table_from_spec, public_api_summary
+
     template_root = Path(__file__).resolve().parent / "templates" / "ruby"
     values = {
         "PLATFORM": platform,
@@ -146,6 +148,8 @@ def emit(root: Path, config: dict[str, Any], spec: dict[str, Any], assets: Path)
         "OPERATION_JSON": json.dumps(operations, ensure_ascii=False, sort_keys=True),
         "OPERATION_IDS_JSON": json.dumps(sorted(operations)),
         "OPERATION_COUNT": str(len(operations)),
+        "SEO_SUMMARY": public_api_summary(config),
+        "ENDPOINT_TABLE": endpoint_table_from_spec(spec, platform),
         "DEPENDENCIES": dependency_lines,
         "DIRECT_METHODS": "\n".join(
             f"      define_method({method!r}) do |**params|\n"

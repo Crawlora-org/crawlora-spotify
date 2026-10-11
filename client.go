@@ -1,4 +1,4 @@
-// Package spotify is a focused Go client for Crawlora's Spotify endpoints.
+// Package spotify is Crawlora's Spotify API client for 38 endpoints, covering search, tracks, albums, artists, playlists, profiles, audiobooks, charts, and podcast shows and episodes.
 // API documentation: https://crawlora.net/docs?utm_source=pkg.go.dev&utm_medium=referral&utm_campaign=platform-clients&utm_content=spotify-go-api-docs
 package spotify
 
