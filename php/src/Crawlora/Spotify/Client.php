@@ -26,7 +26,7 @@ final class Client
     private ?\Closure $transport;
 
     public const PLATFORM = 'spotify';
-    public const VERSION = '0.1.1';
+    public const VERSION = '0.2.0';
     public const OPERATION_COUNT = 38;
     public const OPERATION_IDS = ["spotify-album", "spotify-album-tracks", "spotify-albums-search", "spotify-artist", "spotify-artist-albums", "spotify-artist-playlists", "spotify-artist-related", "spotify-artists-search", "spotify-audiobook", "spotify-audiobook-chapters", "spotify-audiobooks-search", "spotify-chapter", "spotify-episodes-search", "spotify-featured-charts-by-country", "spotify-genre", "spotify-home", "spotify-playlist", "spotify-playlists-search", "spotify-podcasts-categories", "spotify-podcasts-charts", "spotify-podcasts-episode", "spotify-podcasts-home", "spotify-podcasts-search", "spotify-podcasts-show", "spotify-podcasts-show-episodes", "spotify-podcasts-show-recommendations", "spotify-popular-by-country", "spotify-profile", "spotify-profile-followers", "spotify-profile-playlists", "spotify-profiles-search", "spotify-search", "spotify-section", "spotify-shows-search", "spotify-track", "spotify-track-recommended", "spotify-track-similar-albums", "spotify-tracks-search"];
 
@@ -57,7 +57,7 @@ JSON, true, 512, JSON_THROW_ON_ERROR);
         $url = $this->buildUrl($operation, $params);
         $headers = [
             'x-api-key: ' . $this->apiKey,
-            'User-Agent: crawlora-spotify-php/0.1.1',
+            'User-Agent: crawlora-spotify-php/0.2.0',
             'Accept: ' . (in_array('text/plain', $operation['produces'], true) ? 'application/json, text/plain' : 'application/json'),
         ];
         if ($payload !== null) {

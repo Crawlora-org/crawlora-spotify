@@ -9,7 +9,7 @@ import {
 
 export class SpotifyClient extends CrawloraClient {
   constructor(options = {}) {
-    super({ ...options, userAgent: options.userAgent ?? "crawlora-spotify-js/0.1.1" });
+    super({ ...options, userAgent: options.userAgent ?? "crawlora-spotify-js/0.2.0" });
     this["podcastsCategories"] = (...args) => this.request("spotify-podcasts-categories", ...args);
     this["podcastsCharts"] = (...args) => this.request("spotify-podcasts-charts", ...args);
     this["podcastsEpisode"] = (...args) => this.request("spotify-podcasts-episode", ...args);
@@ -60,5 +60,5 @@ export {
   CrawloraServerError
 };
 export { groups, operations, operationCount, OperationIds } from "./operations.js";
-export const VERSION = "0.1.1";
+export const VERSION = "0.2.0";
 export default SpotifyClient;

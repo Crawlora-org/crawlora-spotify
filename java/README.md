@@ -8,7 +8,7 @@ The official Java client for Crawlora's hosted Spotify API. It exposes 38 endpoi
 <dependency>
   <groupId>net.crawlora</groupId>
   <artifactId>crawlora-spotify</artifactId>
-  <version>0.1.1</version>
+  <version>0.2.0</version>
 </dependency>
 ```
 

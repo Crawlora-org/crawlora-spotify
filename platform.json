@@ -1,11 +1,11 @@
 {
   "async_class_name": "AsyncSpotifyClient",
   "class_name": "SpotifyClient",
-  "contract_revision": "sha256:f451f5340517c087f7a6f601dab3c1eef266bade0631f9b5d1b4455dd90c24c0",
+  "contract_revision": "sha256:91b19237dd78b7fc691d9a20e9214e3ce7b3aa857ed5462a1a812d944ef44b0d",
   "display_name": "Spotify",
   "general_sdk_version": "1.46.0-sdk.1",
   "golang_module_name": "github.com/Crawlora-org/crawlora-spotify",
-  "golang_version": "0.1.1",
+  "golang_version": "0.2.0",
   "group_name": "spotify",
   "java_description": "Java client for Crawlora's hosted Spotify API, with search, tracks, albums, artists, playlists, profiles, audiobooks, charts, and podcast shows and episodes. Requires a Crawlora API key.",
   "maven_artifact_id": "crawlora-spotify",
@@ -16,18 +16,25 @@
   "php_repository": "https://github.com/Crawlora-org/crawlora-spotify",
   "platform": "spotify",
   "python_name": "crawlora-spotify",
-  "repository": "https://github.com/Crawlora-org/crawlora-spotify",
-  "ruby_gem_name": "crawlora-spotify",
-  "source_contract_sha256": "8f37412b34b49c443ff8c115dadaf9b6a2a82fd767af53137ce5e9f6b288ea20",
-  "version": "0.1.1",
   "releases": [
     {
-      "version": "0.1.1",
-      "date": "2026-10-12",
+      "changes": [
+        "Updated operation contracts: spotify-album, spotify-album-tracks, spotify-albums-search, spotify-artist, spotify-artist-albums, spotify-artist-playlists, spotify-artist-related, spotify-artists-search, spotify-audiobook, spotify-audiobook-chapters, spotify-audiobooks-search, spotify-chapter, spotify-episodes-search, spotify-featured-charts-by-country, spotify-genre, spotify-home, spotify-playlist, spotify-playlists-search, spotify-podcasts-categories, spotify-podcasts-charts, spotify-podcasts-episode, spotify-podcasts-home, spotify-podcasts-search, spotify-podcasts-show, spotify-podcasts-show-episodes, spotify-podcasts-show-recommendations, spotify-popular-by-country, spotify-profile, spotify-profile-followers, spotify-profile-playlists, spotify-profiles-search, spotify-search, spotify-section, spotify-shows-search, spotify-track, spotify-track-recommended, spotify-track-similar-albums, spotify-tracks-search."
+      ],
+      "date": "2026-10-14",
+      "version": "0.2.0"
+    },
+    {
       "changes": [
         "Publish npm releases through GitHub Actions with provenance.",
         "Expand API endpoint documentation and package metadata for discoverability."
-      ]
+      ],
+      "date": "2026-10-12",
+      "version": "0.1.1"
     }
-  ]
+  ],
+  "repository": "https://github.com/Crawlora-org/crawlora-spotify",
+  "ruby_gem_name": "crawlora-spotify",
+  "source_contract_sha256": "edf94a318d422a94556084a811322eca2f95fd990cb37ad55abc6475c46b633a",
+  "version": "0.2.0"
 }

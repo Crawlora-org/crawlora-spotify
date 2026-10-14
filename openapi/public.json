@@ -20,15 +20,19 @@
     "spotify.AlbumMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "type": "string"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "type": "string"
         },
         "trackCount": {
+          "description": "Number of tracks returned.",
           "type": "integer"
         }
       },
@@ -37,75 +41,99 @@
     "spotify.AlbumResponse": {
       "properties": {
         "albumType": {
+          "description": "Album format as Spotify labels it.",
           "type": "string"
         },
         "artists": {
+          "description": "Artists credited on the album.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "copyrights": {
+          "description": "Copyright notices listed for the album.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "durationMs": {
+          "description": "Total album length in milliseconds.",
           "type": "integer"
         },
         "externalUrl": {
+          "description": "Link to the album on open.spotify.com.",
           "type": "string"
         },
         "id": {
+          "description": "Spotify ID of the album.",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the album cover image.",
           "type": "string"
         },
         "images": {
+          "description": "Cover images available for the album, with their sizes.",
           "items": {
             "$ref": "#/definitions/spotify.ImageAsset"
           },
           "type": "array"
         },
         "isExplicit": {
+          "description": "Whether Spotify marks the album as explicit.",
           "type": "boolean"
         },
         "isPlayable": {
+          "description": "Whether the album can be played.",
           "type": "boolean"
         },
         "limit": {
+          "description": "Maximum number of tracks requested.",
           "type": "integer"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.AlbumMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.AlbumMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "name": {
+          "description": "Album title as Spotify shows it.",
           "type": "string"
         },
         "offset": {
+          "description": "Position of the first track returned.",
           "type": "integer"
         },
         "releaseDate": {
+          "description": "Date the album was released, as Spotify returns it.",
           "type": "string"
         },
         "shareUrl": {
+          "description": "Link to the album that Spotify offers for sharing.",
           "type": "string"
         },
         "totalTracks": {
+          "description": "Total number of tracks on the album.",
           "type": "integer"
         },
         "tracks": {
+          "description": "Tracks returned for the album.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "type": {
+          "description": "Kind of item as Spotify labels it, for example `Album`.",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the album.",
           "type": "string"
         }
       },
@@ -114,15 +142,19 @@
     "spotify.ArtistAlbumsMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "type": "string"
         },
         "count": {
+          "description": "Number of releases returned.",
           "type": "integer"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "type": "string"
         }
       },
@@ -131,33 +163,46 @@
     "spotify.ArtistAlbumsResponse": {
       "properties": {
         "id": {
+          "description": "Spotify ID of the artist.",
           "type": "string"
         },
         "items": {
+          "description": "Releases returned for the artist.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "limit": {
+          "description": "Maximum number of releases requested.",
           "type": "integer"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.ArtistAlbumsMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.ArtistAlbumsMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "offset": {
+          "description": "Position of the first release returned.",
           "type": "integer"
         },
         "order": {
+          "description": "Sort order that was applied: `date_desc`, `date_asc`, `name_asc` or `name_desc`.",
           "type": "string"
         },
         "total": {
+          "description": "Total number of releases of this type on Spotify.",
           "type": "integer"
         },
         "type": {
+          "description": "Release type that was requested: `album`, `single`, `compilation`, `appears_on` or `all`.",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the artist.",
           "type": "string"
         }
       },
@@ -166,15 +211,19 @@
     "spotify.ArtistCollectionMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "type": "string"
         },
         "count": {
+          "description": "Number of items returned.",
           "type": "integer"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "type": "string"
         }
       },
@@ -183,18 +232,26 @@
     "spotify.ArtistCollectionResponse": {
       "properties": {
         "id": {
+          "description": "Spotify ID of the artist.",
           "type": "string"
         },
         "items": {
+          "description": "Playlists or related artists returned for the artist.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.ArtistCollectionMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.ArtistCollectionMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "uri": {
+          "description": "Spotify URI of the artist.",
           "type": "string"
         }
       },
@@ -203,24 +260,31 @@
     "spotify.ArtistMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "type": "string"
         },
         "discographyCount": {
+          "description": "Number of discography entries returned.",
           "type": "integer"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "type": "string"
         },
         "playlistCount": {
+          "description": "Number of playlists returned.",
           "type": "integer"
         },
         "relatedCount": {
+          "description": "Number of related artists returned.",
           "type": "integer"
         },
         "topTrackCount": {
+          "description": "Number of top tracks returned.",
           "type": "integer"
         }
       },
@@ -229,69 +293,90 @@
     "spotify.ArtistResponse": {
       "properties": {
         "biography": {
+          "description": "Artist biography text.",
           "type": "string"
         },
         "discography": {
+          "description": "Selection of the artist's albums and releases.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "externalUrl": {
+          "description": "Link to the artist on open.spotify.com.",
           "type": "string"
         },
         "followers": {
+          "description": "Number of Spotify followers the artist has.",
           "type": "integer"
         },
         "id": {
+          "description": "Spotify ID of the artist.",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the main artist image.",
           "type": "string"
         },
         "images": {
+          "description": "Images available for the artist, with their sizes.",
           "items": {
             "$ref": "#/definitions/spotify.ImageAsset"
           },
           "type": "array"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.ArtistMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.ArtistMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "monthlyUsers": {
+          "description": "Number of monthly listeners Spotify shows for the artist.",
           "type": "integer"
         },
         "name": {
+          "description": "Artist name as Spotify shows it.",
           "type": "string"
         },
         "playlists": {
+          "description": "Playlists featuring the artist.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "related": {
+          "description": "Artists related to this artist.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "shareUrl": {
+          "description": "Link to the artist that Spotify offers for sharing.",
           "type": "string"
         },
         "topTracks": {
+          "description": "Most popular tracks of the artist.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "type": {
+          "description": "Kind of item as Spotify labels it, for example `Artist`.",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the artist.",
           "type": "string"
         },
         "verified": {
+          "description": "Whether Spotify shows the artist as verified.",
           "type": "boolean"
         }
       },
@@ -300,15 +385,19 @@
     "spotify.AudiobookChaptersMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "type": "string"
         },
         "count": {
+          "description": "Number of chapters returned.",
           "type": "integer"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "type": "string"
         }
       },
@@ -317,27 +406,38 @@
     "spotify.AudiobookChaptersResponse": {
       "properties": {
         "chapters": {
+          "description": "Chapters returned for the audiobook.",
           "items": {
             "$ref": "#/definitions/spotify.PodcastEpisodeSummary"
           },
           "type": "array"
         },
         "id": {
+          "description": "Spotify ID of the audiobook.",
           "type": "string"
         },
         "limit": {
+          "description": "Maximum number of chapters requested.",
           "type": "integer"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.AudiobookChaptersMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.AudiobookChaptersMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "offset": {
+          "description": "Position of the first chapter returned.",
           "type": "integer"
         },
         "total": {
+          "description": "Total number of chapters in the audiobook.",
           "type": "integer"
         },
         "uri": {
+          "description": "Spotify URI of the audiobook.",
           "type": "string"
         }
       },
@@ -346,12 +446,15 @@
     "spotify.AudiobookMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "type": "string"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "type": "string"
         }
       },
@@ -360,57 +463,76 @@
     "spotify.AudiobookResponse": {
       "properties": {
         "authors": {
+          "description": "Names of the audiobook's authors.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "description": {
+          "description": "Description text of the audiobook.",
           "type": "string"
         },
         "externalUrl": {
+          "description": "Link to the audiobook on open.spotify.com.",
           "type": "string"
         },
         "id": {
+          "description": "Spotify ID of the audiobook.",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the audiobook cover image.",
           "type": "string"
         },
         "images": {
+          "description": "Cover images available for the audiobook, with their sizes.",
           "items": {
             "$ref": "#/definitions/spotify.ImageAsset"
           },
           "type": "array"
         },
         "isExplicit": {
+          "description": "Whether Spotify marks the audiobook as explicit.",
           "type": "boolean"
         },
         "mediaType": {
+          "description": "Kind of media the audiobook carries, as Spotify labels it.",
           "type": "string"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.AudiobookMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.AudiobookMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "name": {
+          "description": "Audiobook title as Spotify shows it.",
           "type": "string"
         },
         "narrators": {
+          "description": "Names of the audiobook's narrators.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "publisher": {
+          "description": "Name of the audiobook's publisher.",
           "type": "string"
         },
         "totalChapters": {
+          "description": "Total number of chapters in the audiobook.",
           "type": "integer"
         },
         "type": {
+          "description": "Kind of item as Spotify labels it, for example `Audiobook`.",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the audiobook.",
           "type": "string"
         }
       },
@@ -419,40 +541,49 @@
     "spotify.BrowsePageItem": {
       "properties": {
         "description": {
+          "description": "Description text of the item.",
           "example": "The official podcast of comedian Joe Rogan.",
           "type": "string"
         },
         "externalUrl": {
+          "description": "Link to the item on open.spotify.com.",
           "example": "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the main image for the item.",
           "example": "https://i.scdn.co/image/ab67656300005f1f54e6837957803d762a3f4d2b",
           "type": "string"
         },
         "images": {
+          "description": "Images available for the item, with their sizes.",
           "items": {
             "$ref": "#/definitions/spotify.ImageAsset"
           },
           "type": "array"
         },
         "publisher": {
+          "description": "Publisher or creator name of the item.",
           "example": "Joe Rogan",
           "type": "string"
         },
         "subtitle": {
+          "description": "Secondary line shown under the item title, such as the creator name.",
           "example": "Joe Rogan",
           "type": "string"
         },
         "title": {
+          "description": "Item title as Spotify shows it.",
           "example": "The Joe Rogan Experience",
           "type": "string"
         },
         "type": {
+          "description": "Kind of item as Spotify labels it, for example `Podcast`.",
           "example": "Podcast",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the item.",
           "example": "spotify:show:4rOoJ6Egrf8K2IrywzwOMk",
           "type": "string"
         }
@@ -462,18 +593,22 @@
     "spotify.BrowsePageMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:12Z",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "browsePage",
           "type": "string"
         },
         "sectionCount": {
+          "description": "Number of sections returned.",
           "example": 8,
           "type": "integer"
         }
@@ -483,27 +618,37 @@
     "spotify.BrowsePageResponse": {
       "properties": {
         "meta": {
-          "$ref": "#/definitions/spotify.BrowsePageMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.BrowsePageMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "sections": {
+          "description": "Sections of the page, in display order.",
           "items": {
             "$ref": "#/definitions/spotify.BrowsePageSection"
           },
           "type": "array"
         },
         "subtitle": {
+          "description": "Secondary line shown under the page title.",
           "example": "New shows and episodes",
           "type": "string"
         },
         "title": {
+          "description": "Page title as Spotify shows it.",
           "example": "Podcasts",
           "type": "string"
         },
         "type": {
+          "description": "Kind of page container as Spotify labels it.",
           "example": "BrowseSectionContainer",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the page that was loaded.",
           "example": "spotify:genre:podcasts-web",
           "type": "string"
         }
@@ -513,28 +658,34 @@
     "spotify.BrowsePageSection": {
       "properties": {
         "items": {
+          "description": "Items returned for this section.",
           "items": {
             "$ref": "#/definitions/spotify.BrowsePageItem"
           },
           "type": "array"
         },
         "subtitle": {
+          "description": "Secondary line shown under the section heading.",
           "example": "Recommended shows",
           "type": "string"
         },
         "title": {
+          "description": "Section heading as Spotify shows it.",
           "example": "Popular podcasts",
           "type": "string"
         },
         "totalCount": {
+          "description": "Total number of items in the section on Spotify.",
           "example": 20,
           "type": "integer"
         },
         "type": {
+          "description": "Kind of section as Spotify labels it.",
           "example": "BrowseGenericSectionData",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the section.",
           "example": "spotify:section:0JQ5IMCbQBLqNPkcmYxQPQ",
           "type": "string"
         }
@@ -544,18 +695,22 @@
     "spotify.BrowseSectionMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "count": {
+          "description": "Number of items returned.",
           "example": 20,
           "type": "integer"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:12Z",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "browseSection",
           "type": "string"
         }
@@ -565,39 +720,52 @@
     "spotify.BrowseSectionResponse": {
       "properties": {
         "items": {
+          "description": "Items returned for this section.",
           "items": {
             "$ref": "#/definitions/spotify.BrowsePageItem"
           },
           "type": "array"
         },
         "limit": {
+          "description": "Maximum number of items requested.",
           "example": 20,
           "type": "integer"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.BrowseSectionMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.BrowseSectionMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "offset": {
+          "description": "Position of the first item returned within the section.",
           "example": 0,
           "type": "integer"
         },
         "subtitle": {
+          "description": "Secondary line shown under the section heading.",
           "example": "Recommended shows",
           "type": "string"
         },
         "title": {
+          "description": "Section heading as Spotify shows it.",
           "example": "Popular podcasts",
           "type": "string"
         },
         "totalCount": {
+          "description": "Total number of items in the section on Spotify.",
           "example": 50,
           "type": "integer"
         },
         "type": {
+          "description": "Kind of section as Spotify labels it.",
           "example": "BrowseGenericSectionData",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the section that was loaded.",
           "example": "spotify:section:0JQ5IMCbQBLqNPkcmYxQPQ",
           "type": "string"
         }
@@ -607,78 +775,97 @@
     "spotify.ChartItem": {
       "properties": {
         "description": {
+          "description": "Description text of the chart entry.",
           "example": "The official podcast of comedian Joe Rogan.",
           "type": "string"
         },
         "episodeDescription": {
+          "description": "Description text of the episode, for episode charts.",
           "example": "A representative chart episode.",
           "type": "string"
         },
         "episodeExternalUrl": {
+          "description": "Link to the episode on open.spotify.com, for episode charts.",
           "example": "https://open.spotify.com/episode/2C2Y5kNq7qCVOVhbA0G3os",
           "type": "string"
         },
         "episodeImageUrl": {
+          "description": "URL of the episode's cover image, for episode charts.",
           "example": "https://i.scdn.co/image/ab67656300005f1f54e6837957803d762a3f4d2b",
           "type": "string"
         },
         "episodeName": {
+          "description": "Episode title as Spotify shows it, for episode charts.",
           "example": "Example episode",
           "type": "string"
         },
         "episodeUri": {
+          "description": "Spotify URI of the episode, for episode charts.",
           "example": "spotify:episode:2C2Y5kNq7qCVOVhbA0G3os",
           "type": "string"
         },
         "externalUrl": {
+          "description": "Link to the chart entry on open.spotify.com.",
           "example": "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the cover image for the chart entry.",
           "example": "https://i.scdn.co/image/ab67656300005f1f54e6837957803d762a3f4d2b",
           "type": "string"
         },
         "name": {
+          "description": "Title of the chart entry (episode title for episode charts, otherwise show title).",
           "example": "The Joe Rogan Experience",
           "type": "string"
         },
         "publisher": {
+          "description": "Name of the publisher of the show.",
           "example": "Joe Rogan",
           "type": "string"
         },
         "rank": {
+          "description": "Position of the entry in the chart, starting at 1.",
           "example": 1,
           "type": "integer"
         },
         "rankMove": {
+          "description": "Change in rank since the previous chart period, as Spotify labels it, for example `UNCHANGED`.",
           "example": "UNCHANGED",
           "type": "string"
         },
         "showDescription": {
+          "description": "Description text of the show.",
           "example": "The official podcast of comedian Joe Rogan.",
           "type": "string"
         },
         "showExternalUrl": {
+          "description": "Link to the show on open.spotify.com.",
           "example": "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
           "type": "string"
         },
         "showImageUrl": {
+          "description": "URL of the show's cover image.",
           "example": "https://i.scdn.co/image/ab67656300005f1f54e6837957803d762a3f4d2b",
           "type": "string"
         },
         "showName": {
+          "description": "Show title as Spotify shows it.",
           "example": "The Joe Rogan Experience",
           "type": "string"
         },
         "showPublisher": {
+          "description": "Name of the show's publisher.",
           "example": "Joe Rogan",
           "type": "string"
         },
         "showUri": {
+          "description": "Spotify URI of the show.",
           "example": "spotify:show:4rOoJ6Egrf8K2IrywzwOMk",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the chart entry (an episode for episode charts, otherwise a show).",
           "example": "spotify:show:4rOoJ6Egrf8K2IrywzwOMk",
           "type": "string"
         }
@@ -688,14 +875,17 @@
     "spotify.ChartMeta": {
       "properties": {
         "count": {
+          "description": "Number of chart entries returned.",
           "example": 100,
           "type": "integer"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:13Z",
           "type": "string"
         },
         "sourceUrl": {
+          "description": "URL the data was read from.",
           "example": "https://podcastcharts.byspotify.com/api/charts/top-podcasts?region=us",
           "type": "string"
         }
@@ -705,35 +895,47 @@
     "spotify.ChartResponse": {
       "properties": {
         "chart": {
+          "description": "Chart identifier that was requested, for example `top-podcasts`.",
           "example": "top-podcasts",
           "type": "string"
         },
         "chartName": {
+          "description": "Display name of the chart.",
           "example": "Top Podcasts",
           "type": "string"
         },
         "chartType": {
+          "description": "Whether the chart is an overall `chart` or a `category` chart.",
           "example": "chart",
           "type": "string"
         },
         "items": {
+          "description": "Chart entries, ordered by rank.",
           "items": {
             "$ref": "#/definitions/spotify.ChartItem"
           },
           "type": "array"
         },
         "limit": {
+          "description": "Maximum number of chart entries requested.",
           "example": 100,
           "type": "integer"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.ChartMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.ChartMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "region": {
+          "description": "Region code the chart was loaded for.",
           "example": "us",
           "type": "string"
         },
         "regionName": {
+          "description": "Name of the chart region.",
           "example": "United States",
           "type": "string"
         }
@@ -743,10 +945,12 @@
     "spotify.CountryHubContentID": {
       "properties": {
         "id": {
+          "description": "Content identifier to pass when requesting that section, for example `CHARTS`.",
           "example": "CHARTS",
           "type": "string"
         },
         "title": {
+          "description": "Section heading as Spotify shows it.",
           "example": "Featured Charts",
           "type": "string"
         }
@@ -756,18 +960,22 @@
     "spotify.CountryHubContentMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:13Z",
           "type": "string"
         },
         "itemCount": {
+          "description": "Number of items returned.",
           "example": 20,
           "type": "integer"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "countryHubContent",
           "type": "string"
         },
@@ -782,43 +990,56 @@
     "spotify.CountryHubContentResponse": {
       "properties": {
         "contentId": {
+          "description": "Content identifier that was requested: `CHARTS`, `POPULAR_ALBUMS`, `POPULAR_ARTISTS` or `TRENDING_SONGS`.",
           "example": "CHARTS",
           "type": "string"
         },
         "countryCode": {
+          "description": "Country code the content was loaded for.",
           "example": "US",
           "type": "string"
         },
         "countryName": {
+          "description": "Name of the country.",
           "example": "United States",
           "type": "string"
         },
         "hexColor": {
+          "description": "Accent color of the country page, as a hex color code.",
           "example": "#1DB954",
           "type": "string"
         },
         "items": {
+          "description": "Items returned for the section.",
           "items": {
             "$ref": "#/definitions/spotify.CountryHubItem"
           },
           "type": "array"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.CountryHubContentMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.CountryHubContentMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "supportedContentIds": {
+          "description": "Content sections available on the country page.",
           "items": {
             "$ref": "#/definitions/spotify.CountryHubContentID"
           },
           "type": "array"
         },
         "supportedCountries": {
+          "description": "Countries Spotify offers a popular-in page for.",
           "items": {
             "$ref": "#/definitions/spotify.PopularCountry"
           },
           "type": "array"
         },
         "title": {
+          "description": "Section heading as Spotify shows it.",
           "example": "Featured Charts",
           "type": "string"
         }
@@ -828,9 +1049,15 @@
     "spotify.CountryHubItem": {
       "properties": {
         "album": {
-          "$ref": "#/definitions/spotify.SearchResultSummary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.SearchResultSummary"
+            }
+          ],
+          "description": "Album the item appears on."
         },
         "artists": {
+          "description": "Artists credited on the item.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
@@ -840,45 +1067,59 @@
           "additionalProperties": {
             "type": "string"
           },
+          "description": "Additional key-value attributes Spotify returns for the item.",
           "example": {
             "{\"chart\"": "\"top-50\"}"
           },
           "type": "object"
         },
         "description": {
+          "description": "Description text of the item.",
           "example": "Your daily update of the most played tracks right now.",
           "type": "string"
         },
         "externalUrl": {
+          "description": "Link to the item on open.spotify.com.",
           "example": "https://open.spotify.com/playlist/37i9dQZEVXbLRQDuF5jeBpM",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the main image for the item.",
           "example": "https://charts-images.scdn.co/assets/locale_en/regional/daily/region_us_default.jpg",
           "type": "string"
         },
         "images": {
+          "description": "Images available for the item, with their sizes.",
           "items": {
             "$ref": "#/definitions/spotify.ImageAsset"
           },
           "type": "array"
         },
         "owner": {
-          "$ref": "#/definitions/spotify.SearchResultSummary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.SearchResultSummary"
+            }
+          ],
+          "description": "User or account that owns the item."
         },
         "subtitle": {
+          "description": "Secondary line shown under the item title.",
           "example": "Spotify",
           "type": "string"
         },
         "title": {
+          "description": "Item title as Spotify shows it.",
           "example": "Top 50 - USA",
           "type": "string"
         },
         "type": {
+          "description": "Kind of item as Spotify labels it, for example `Playlist`.",
           "example": "Playlist",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the item.",
           "example": "spotify:playlist:37i9dQZEVXbLRQDuF5jeBpM",
           "type": "string"
         }
@@ -888,18 +1129,22 @@
     "spotify.CountryHubMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:13Z",
           "type": "string"
         },
         "itemCount": {
+          "description": "Number of items returned across all sections.",
           "example": 20,
           "type": "integer"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "countryHubsPage",
           "type": "string"
         },
@@ -909,6 +1154,7 @@
           "type": "integer"
         },
         "sectionCount": {
+          "description": "Number of sections returned.",
           "example": 5,
           "type": "integer"
         }
@@ -918,27 +1164,37 @@
     "spotify.CountryHubResponse": {
       "properties": {
         "countryCode": {
+          "description": "Country code the hub was loaded for.",
           "example": "US",
           "type": "string"
         },
         "countryName": {
+          "description": "Name of the country.",
           "example": "United States",
           "type": "string"
         },
         "hexColor": {
+          "description": "Accent color of the country page, as a hex color code.",
           "example": "#1DB954",
           "type": "string"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.CountryHubMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.CountryHubMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "sections": {
+          "description": "Content sections of the country page.",
           "items": {
             "$ref": "#/definitions/spotify.CountryHubSection"
           },
           "type": "array"
         },
         "supportedCountries": {
+          "description": "Countries Spotify offers a popular-in page for.",
           "items": {
             "$ref": "#/definitions/spotify.PopularCountry"
           },
@@ -950,20 +1206,24 @@
     "spotify.CountryHubSection": {
       "properties": {
         "contentId": {
+          "description": "Identifier of the section content, for example `CHARTS`.",
           "example": "CHARTS",
           "type": "string"
         },
         "items": {
+          "description": "Items returned for this section.",
           "items": {
             "$ref": "#/definitions/spotify.CountryHubItem"
           },
           "type": "array"
         },
         "title": {
+          "description": "Section heading as Spotify shows it.",
           "example": "Featured Charts",
           "type": "string"
         },
         "totalCount": {
+          "description": "Total number of items in the section on Spotify.",
           "example": 20,
           "type": "integer"
         }
@@ -973,18 +1233,22 @@
     "spotify.HomeMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:12Z",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "home",
           "type": "string"
         },
         "sectionCount": {
+          "description": "Number of sections returned.",
           "example": 8,
           "type": "integer"
         }
@@ -994,23 +1258,32 @@
     "spotify.HomeResponse": {
       "properties": {
         "facet": {
+          "description": "Home page filter that was applied, for example `music`.",
           "example": "music",
           "type": "string"
         },
         "greeting": {
+          "description": "Greeting Spotify shows at the top of the home page, for example `Good afternoon`.",
           "example": "Good afternoon",
           "type": "string"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.HomeMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.HomeMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "sections": {
+          "description": "Home page sections, in display order.",
           "items": {
             "$ref": "#/definitions/spotify.BrowsePageSection"
           },
           "type": "array"
         },
         "timeZone": {
+          "description": "Time zone the home page was personalized for.",
           "example": "UTC",
           "type": "string"
         }
@@ -1020,14 +1293,17 @@
     "spotify.ImageAsset": {
       "properties": {
         "height": {
+          "description": "Image height in pixels.",
           "example": 640,
           "type": "integer"
         },
         "url": {
+          "description": "URL of the image.",
           "example": "https://i.scdn.co/image/ab6765630000ba8ab0484f8ee2933eceab32bac0",
           "type": "string"
         },
         "width": {
+          "description": "Image width in pixels.",
           "example": 640,
           "type": "integer"
         }
@@ -1037,26 +1313,32 @@
     "spotify.PlaylistMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "episodeCount": {
+          "description": "Number of episodes among the returned items.",
           "example": 0,
           "type": "integer"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:12Z",
           "type": "string"
         },
         "itemCount": {
+          "description": "Number of items returned.",
           "example": 20,
           "type": "integer"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "fetchPlaylist",
           "type": "string"
         },
         "trackCount": {
+          "description": "Number of tracks among the returned items.",
           "example": 20,
           "type": "integer"
         }
@@ -1066,84 +1348,111 @@
     "spotify.PlaylistResponse": {
       "properties": {
         "collaborative": {
+          "description": "Whether the playlist is collaborative.",
           "example": false,
           "type": "boolean"
         },
         "description": {
+          "description": "Description text of the playlist.",
           "example": "Your daily update of the most played tracks right now.",
           "type": "string"
         },
         "episodes": {
+          "description": "The podcast episode entries among the returned items.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "externalUrl": {
+          "description": "Link to the playlist on open.spotify.com.",
           "example": "https://open.spotify.com/playlist/37i9dQZEVXbLwpL8TjsxOG",
           "type": "string"
         },
         "followers": {
+          "description": "Number of followers the playlist has.",
           "example": 17500000,
           "type": "integer"
         },
         "id": {
+          "description": "Spotify ID of the playlist.",
           "example": "37i9dQZEVXbLwpL8TjsxOG",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the playlist cover image.",
           "example": "https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_default.jpg",
           "type": "string"
         },
         "images": {
+          "description": "Cover images available for the playlist, with their sizes.",
           "items": {
             "$ref": "#/definitions/spotify.ImageAsset"
           },
           "type": "array"
         },
         "items": {
+          "description": "Tracks and episodes returned from the playlist, in playlist order.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "limit": {
+          "description": "Maximum number of items requested.",
           "example": 20,
           "type": "integer"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.PlaylistMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.PlaylistMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "name": {
+          "description": "Playlist title as Spotify shows it.",
           "example": "Top 50 - Global",
           "type": "string"
         },
         "offset": {
+          "description": "Position of the first item returned.",
           "example": 0,
           "type": "integer"
         },
         "owner": {
-          "$ref": "#/definitions/spotify.SearchResultSummary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.SearchResultSummary"
+            }
+          ],
+          "description": "User or account that owns the playlist."
         },
         "shareUrl": {
+          "description": "Link to the playlist that Spotify offers for sharing.",
           "example": "https://open.spotify.com/playlist/37i9dQZEVXbLwpL8TjsxOG",
           "type": "string"
         },
         "total": {
+          "description": "Total number of items in the playlist.",
           "example": 50,
           "type": "integer"
         },
         "tracks": {
+          "description": "The track entries among the returned items.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "type": {
+          "description": "Kind of item as Spotify labels it, for example `Playlist`.",
           "example": "Playlist",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the playlist.",
           "example": "spotify:playlist:37i9dQZEVXbLwpL8TjsxOG",
           "type": "string"
         }
@@ -1153,18 +1462,22 @@
     "spotify.PodcastEpisodeMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:13Z",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "getEpisodeOrChapter",
           "type": "string"
         },
         "sourceUrl": {
+          "description": "URL the data was read from.",
           "example": "https://open.spotify.com/episode/2C2Y5kNq7qCVOVhbA0G3os",
           "type": "string"
         }
@@ -1174,48 +1487,59 @@
     "spotify.PodcastEpisodeResponse": {
       "properties": {
         "description": {
+          "description": "Plain-text description of the episode.",
           "example": "A new adventure from the Stinky Dragon crew.",
           "type": "string"
         },
         "durationMs": {
+          "description": "Episode length in milliseconds.",
           "example": 3600000,
           "type": "integer"
         },
         "externalUrl": {
+          "description": "Link to the episode on open.spotify.com.",
           "example": "https://open.spotify.com/episode/2C2Y5kNq7qCVOVhbA0G3os",
           "type": "string"
         },
         "htmlDescription": {
+          "description": "Description of the episode with its HTML formatting.",
           "example": "A new adventure from the Stinky Dragon crew.",
           "type": "string"
         },
         "id": {
+          "description": "Spotify ID of the episode.",
           "example": "2C2Y5kNq7qCVOVhbA0G3os",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the main cover image for the episode.",
           "example": "https://i.scdn.co/image/ab6765630000ba8ab0484f8ee2933eceab32bac0",
           "type": "string"
         },
         "images": {
+          "description": "Cover images available for the episode, with their sizes.",
           "items": {
             "$ref": "#/definitions/spotify.ImageAsset"
           },
           "type": "array"
         },
         "isExplicit": {
+          "description": "Whether Spotify marks the episode as explicit.",
           "example": false,
           "type": "boolean"
         },
         "isPaywallContent": {
+          "description": "Whether the episode is paywalled content.",
           "example": false,
           "type": "boolean"
         },
         "isPlayable": {
+          "description": "Whether the episode can be played.",
           "example": true,
           "type": "boolean"
         },
         "mediaTypes": {
+          "description": "Media types the episode is available in, for example `AUDIO`.",
           "example": [
             "AUDIO"
           ],
@@ -1225,21 +1549,30 @@
           "type": "array"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.PodcastEpisodeMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.PodcastEpisodeMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "name": {
+          "description": "Episode title as Spotify shows it.",
           "example": "Tales from the Stinky Dragon",
           "type": "string"
         },
         "playabilityReason": {
+          "description": "Reason code Spotify gives for the episode's playability, for example `PLAYABLE`.",
           "example": "PLAYABLE",
           "type": "string"
         },
         "previewAudioUrl": {
+          "description": "URL of an audio preview of the episode.",
           "example": "https://p.scdn.co/mp3-preview/example",
           "type": "string"
         },
         "previewAudioUrls": {
+          "description": "URLs of the audio previews available for the episode.",
           "example": [
             "https://p.scdn.co/mp3-preview/example"
           ],
@@ -1249,33 +1582,45 @@
           "type": "array"
         },
         "previewVideoUrl": {
+          "description": "URL of a video preview of the episode.",
           "example": "https://p.scdn.co/video-preview/example",
           "type": "string"
         },
         "releaseDate": {
+          "description": "Date the episode was released, as Spotify returns it.",
           "example": "2026-05-13",
           "type": "string"
         },
         "releaseDatePrecision": {
+          "description": "How precise the release date is, for example `DAY`.",
           "example": "DAY",
           "type": "string"
         },
         "shareUrl": {
+          "description": "Link to the episode that Spotify offers for sharing.",
           "example": "https://open.spotify.com/episode/2C2Y5kNq7qCVOVhbA0G3os",
           "type": "string"
         },
         "show": {
-          "$ref": "#/definitions/spotify.PodcastEpisodeShowSummary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.PodcastEpisodeShowSummary"
+            }
+          ],
+          "description": "Show the episode belongs to."
         },
         "transcriptCount": {
+          "description": "Number of transcripts Spotify has for the episode.",
           "example": 1,
           "type": "integer"
         },
         "type": {
+          "description": "Kind of item as Spotify labels it, for example `Episode`.",
           "example": "Episode",
           "type": "string"
         },
         "unplayabilityReasons": {
+          "description": "Reasons the episode cannot be played, such as `not_available_in_region`.",
           "example": [
             "not_available_in_region"
           ],
@@ -1285,14 +1630,17 @@
           "type": "array"
         },
         "uri": {
+          "description": "Spotify URI of the episode.",
           "example": "spotify:episode:2C2Y5kNq7qCVOVhbA0G3os",
           "type": "string"
         },
         "videoThumbnailUrl": {
+          "description": "URL of the video thumbnail for the episode.",
           "example": "https://i.scdn.co/image/ab6765630000ba8ab0484f8ee2933eceab32bac0",
           "type": "string"
         },
         "videoThumbnails": {
+          "description": "Video thumbnails available for the episode, with their sizes.",
           "items": {
             "$ref": "#/definitions/spotify.ImageAsset"
           },
@@ -1304,40 +1652,49 @@
     "spotify.PodcastEpisodeShowSummary": {
       "properties": {
         "description": {
+          "description": "Description text of the show.",
           "example": "Tales from the Stinky Dragon is an actual-play comedy podcast.",
           "type": "string"
         },
         "externalUrl": {
+          "description": "Link to the show on open.spotify.com.",
           "example": "https://open.spotify.com/show/1QQJ7FElLE0K6CIfZNCxU4",
           "type": "string"
         },
         "id": {
+          "description": "Spotify ID of the show.",
           "example": "1QQJ7FElLE0K6CIfZNCxU4",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the main cover image for the show.",
           "example": "https://i.scdn.co/image/ab6765630000ba8ab0484f8ee2933eceab32bac0",
           "type": "string"
         },
         "images": {
+          "description": "Cover images available for the show, with their sizes.",
           "items": {
             "$ref": "#/definitions/spotify.ImageAsset"
           },
           "type": "array"
         },
         "mediaType": {
+          "description": "Kind of media the show carries, for example `MIXED`.",
           "example": "MIXED",
           "type": "string"
         },
         "name": {
+          "description": "Show title as Spotify shows it.",
           "example": "Tales from the Stinky Dragon",
           "type": "string"
         },
         "publisher": {
+          "description": "Name of the show's publisher.",
           "example": "Stinky Dragon",
           "type": "string"
         },
         "showTypes": {
+          "description": "Show type labels Spotify assigns, for example `PODCAST`.",
           "example": [
             "PODCAST"
           ],
@@ -1347,10 +1704,12 @@
           "type": "array"
         },
         "type": {
+          "description": "Kind of item as Spotify labels it, for example `Podcast`.",
           "example": "Podcast",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the show.",
           "example": "spotify:show:1QQJ7FElLE0K6CIfZNCxU4",
           "type": "string"
         }
@@ -1360,48 +1719,59 @@
     "spotify.PodcastEpisodeSummary": {
       "properties": {
         "description": {
+          "description": "Description text of the episode.",
           "example": "A new adventure from the Stinky Dragon crew.",
           "type": "string"
         },
         "durationMs": {
+          "description": "Episode length in milliseconds.",
           "example": 3600000,
           "type": "integer"
         },
         "externalUrl": {
+          "description": "Link to the episode on open.spotify.com.",
           "example": "https://open.spotify.com/episode/2C2Y5kNq7qCVOVhbA0G3os",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the main cover image for the episode.",
           "example": "https://i.scdn.co/image/ab6765630000ba8ab0484f8ee2933eceab32bac0",
           "type": "string"
         },
         "images": {
+          "description": "Cover images available for the episode, with their sizes.",
           "items": {
             "$ref": "#/definitions/spotify.ImageAsset"
           },
           "type": "array"
         },
         "isExplicit": {
+          "description": "Whether Spotify marks the episode as explicit.",
           "example": false,
           "type": "boolean"
         },
         "isPlayable": {
+          "description": "Whether the episode can be played.",
           "example": true,
           "type": "boolean"
         },
         "name": {
+          "description": "Episode title as Spotify shows it.",
           "example": "Tales from the Stinky Dragon",
           "type": "string"
         },
         "releaseDate": {
+          "description": "Date the episode was released, as Spotify returns it.",
           "example": "2026-05-13",
           "type": "string"
         },
         "type": {
+          "description": "Kind of item as Spotify labels it, for example `Episode`.",
           "example": "Episode",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the episode.",
           "example": "spotify:episode:2C2Y5kNq7qCVOVhbA0G3os",
           "type": "string"
         }
@@ -1411,14 +1781,17 @@
     "spotify.PodcastEpisodesMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:13Z",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "queryPodcastEpisodes",
           "type": "string"
         }
@@ -1428,27 +1801,37 @@
     "spotify.PodcastEpisodesResponse": {
       "properties": {
         "episodes": {
+          "description": "Episodes returned for the show.",
           "items": {
             "$ref": "#/definitions/spotify.PodcastEpisodeSummary"
           },
           "type": "array"
         },
         "limit": {
+          "description": "Maximum number of episodes requested.",
           "example": 20,
           "type": "integer"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.PodcastEpisodesMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.PodcastEpisodesMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "offset": {
+          "description": "Position of the first episode returned.",
           "example": 0,
           "type": "integer"
         },
         "total": {
+          "description": "Total number of episodes the show has on Spotify.",
           "example": 202,
           "type": "integer"
         },
         "uri": {
+          "description": "Spotify URI of the show whose episodes are listed.",
           "example": "spotify:show:1QQJ7FElLE0K6CIfZNCxU4",
           "type": "string"
         }
@@ -1462,6 +1845,7 @@
           "type": "string"
         },
         "name": {
+          "description": "Country name in English.",
           "example": "United States",
           "type": "string"
         }
@@ -1471,40 +1855,49 @@
     "spotify.RecommendationSummary": {
       "properties": {
         "description": {
+          "description": "Description text of the recommended item.",
           "example": "The official podcast of comedian Joe Rogan.",
           "type": "string"
         },
         "externalUrl": {
+          "description": "Link to the recommended item on open.spotify.com.",
           "example": "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the main image for the recommended item.",
           "example": "https://i.scdn.co/image/ab67656300005f1f54e6837957803d762a3f4d2b",
           "type": "string"
         },
         "images": {
+          "description": "Images available for the recommended item, with their sizes.",
           "items": {
             "$ref": "#/definitions/spotify.ImageAsset"
           },
           "type": "array"
         },
         "publisher": {
+          "description": "Publisher or creator name of the recommended item.",
           "example": "Joe Rogan",
           "type": "string"
         },
         "subtitle": {
+          "description": "Secondary line shown under the title, such as the creator name.",
           "example": "Joe Rogan",
           "type": "string"
         },
         "title": {
+          "description": "Title of the recommended item as Spotify shows it.",
           "example": "The Joe Rogan Experience",
           "type": "string"
         },
         "type": {
+          "description": "Kind of item as Spotify labels it, for example `Podcast`.",
           "example": "Podcast",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the recommended item.",
           "example": "spotify:show:4rOoJ6Egrf8K2IrywzwOMk",
           "type": "string"
         }
@@ -1514,54 +1907,67 @@
     "spotify.SearchMeta": {
       "properties": {
         "albumCount": {
+          "description": "Number of albums returned.",
           "example": 3,
           "type": "integer"
         },
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "artistCount": {
+          "description": "Number of artists returned.",
           "example": 5,
           "type": "integer"
         },
         "audiobookCount": {
+          "description": "Number of audiobooks returned.",
           "example": 2,
           "type": "integer"
         },
         "episodeCount": {
+          "description": "Number of episodes returned.",
           "example": 2,
           "type": "integer"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:12Z",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "searchDesktop",
           "type": "string"
         },
         "playlistCount": {
+          "description": "Number of playlists returned.",
           "example": 2,
           "type": "integer"
         },
         "resultCount": {
+          "description": "Total number of results returned.",
           "example": 22,
           "type": "integer"
         },
         "showCount": {
+          "description": "Number of shows returned.",
           "example": 4,
           "type": "integer"
         },
         "topCount": {
+          "description": "Number of top results returned.",
           "example": 3,
           "type": "integer"
         },
         "trackCount": {
+          "description": "Number of tracks returned.",
           "example": 2,
           "type": "integer"
         },
         "userCount": {
+          "description": "Number of user profiles returned.",
           "example": 2,
           "type": "integer"
         }
@@ -1571,26 +1977,32 @@
     "spotify.SearchPodcastsMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "episodeCount": {
+          "description": "Number of episodes returned.",
           "example": 2,
           "type": "integer"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:12Z",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "searchPodcasts",
           "type": "string"
         },
         "showCount": {
+          "description": "Number of shows returned.",
           "example": 4,
           "type": "integer"
         },
         "topCount": {
+          "description": "Number of top results returned.",
           "example": 3,
           "type": "integer"
         }
@@ -1600,33 +2012,44 @@
     "spotify.SearchPodcastsResponse": {
       "properties": {
         "episodes": {
+          "description": "Podcast episodes that matched the search term.",
           "items": {
             "$ref": "#/definitions/spotify.PodcastEpisodeSummary"
           },
           "type": "array"
         },
         "limit": {
+          "description": "Maximum number of results requested per section.",
           "example": 20,
           "type": "integer"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.SearchPodcastsMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.SearchPodcastsMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "offset": {
+          "description": "Position of the first result returned.",
           "example": 0,
           "type": "integer"
         },
         "searchTerm": {
+          "description": "Search term that was run.",
           "example": "hello",
           "type": "string"
         },
         "shows": {
+          "description": "Podcast shows that matched the search term.",
           "items": {
             "$ref": "#/definitions/spotify.RecommendationSummary"
           },
           "type": "array"
         },
         "topResults": {
+          "description": "Best matches across all result types.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
@@ -1638,75 +2061,93 @@
     "spotify.SearchResponse": {
       "properties": {
         "albums": {
+          "description": "Albums that matched the search term.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "artists": {
+          "description": "Artists that matched the search term.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "audiobooks": {
+          "description": "Audiobooks that matched the search term.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "episodes": {
+          "description": "Podcast episodes that matched the search term.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "limit": {
+          "description": "Maximum number of results requested per section.",
           "example": 20,
           "type": "integer"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.SearchMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.SearchMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "offset": {
+          "description": "Position of the first result returned.",
           "example": 0,
           "type": "integer"
         },
         "playlists": {
+          "description": "Playlists that matched the search term.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "results": {
+          "description": "All results found, across every type.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "searchTerm": {
+          "description": "Search term that was run.",
           "example": "hello",
           "type": "string"
         },
         "shows": {
+          "description": "Podcast shows that matched the search term.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "topResults": {
+          "description": "Best matches across all result types.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "tracks": {
+          "description": "Tracks that matched the search term.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "users": {
+          "description": "User profiles that matched the search term.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
@@ -1718,40 +2159,49 @@
     "spotify.SearchResultSummary": {
       "properties": {
         "description": {
+          "description": "Description text of the result.",
           "example": "The official podcast of comedian Joe Rogan.",
           "type": "string"
         },
         "externalUrl": {
+          "description": "Link to the result on open.spotify.com.",
           "example": "https://open.spotify.com/show/4rOoJ6Egrf8K2IrywzwOMk",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the main image for the result.",
           "example": "https://i.scdn.co/image/ab67656300005f1f54e6837957803d762a3f4d2b",
           "type": "string"
         },
         "images": {
+          "description": "Images available for the result, with their sizes.",
           "items": {
             "$ref": "#/definitions/spotify.ImageAsset"
           },
           "type": "array"
         },
         "publisher": {
+          "description": "Publisher or creator name of the result.",
           "example": "Joe Rogan",
           "type": "string"
         },
         "subtitle": {
+          "description": "Secondary line shown under the title, such as the artist or creator name.",
           "example": "Joe Rogan",
           "type": "string"
         },
         "title": {
+          "description": "Result title as Spotify shows it.",
           "example": "The Joe Rogan Experience",
           "type": "string"
         },
         "type": {
+          "description": "Kind of result as Spotify labels it, for example `Podcast`.",
           "example": "Podcast",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the result.",
           "example": "spotify:show:4rOoJ6Egrf8K2IrywzwOMk",
           "type": "string"
         }
@@ -1832,18 +2282,22 @@
     "spotify.ShowRecommendationsMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "count": {
+          "description": "Number of recommendations returned.",
           "example": 10,
           "type": "integer"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:13Z",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "internalLinkRecommenderShow",
           "type": "string"
         }
@@ -1853,15 +2307,22 @@
     "spotify.ShowRecommendationsResponse": {
       "properties": {
         "meta": {
-          "$ref": "#/definitions/spotify.ShowRecommendationsMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.ShowRecommendationsMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "recommendations": {
+          "description": "Related shows and episodes Spotify suggests.",
           "items": {
             "$ref": "#/definitions/spotify.RecommendationSummary"
           },
           "type": "array"
         },
         "uri": {
+          "description": "Spotify URI of the show the recommendations are for.",
           "example": "spotify:show:1QQJ7FElLE0K6CIfZNCxU4",
           "type": "string"
         }
@@ -1871,14 +2332,17 @@
     "spotify.TrackMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:10Z",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "getTrack",
           "type": "string"
         }
@@ -1888,18 +2352,22 @@
     "spotify.TrackRecommendedMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "count": {
+          "description": "Number of recommendations returned.",
           "example": 10,
           "type": "integer"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:12Z",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "internalLinkRecommenderTrack",
           "type": "string"
         }
@@ -1909,19 +2377,27 @@
     "spotify.TrackRecommendedResponse": {
       "properties": {
         "limit": {
+          "description": "Maximum number of recommendations requested.",
           "example": 10,
           "type": "integer"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.TrackRecommendedMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.TrackRecommendedMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "recommendations": {
+          "description": "Items Spotify recommends for the track.",
           "items": {
             "$ref": "#/definitions/spotify.RecommendationSummary"
           },
           "type": "array"
         },
         "uri": {
+          "description": "Spotify URI of the track the recommendations are for.",
           "example": "spotify:track:4vGg44GdCw3X8i8r01XJH0",
           "type": "string"
         }
@@ -1931,68 +2407,92 @@
     "spotify.TrackResponse": {
       "properties": {
         "album": {
-          "$ref": "#/definitions/spotify.SearchResultSummary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.SearchResultSummary"
+            }
+          ],
+          "description": "Album the track appears on."
         },
         "artists": {
+          "description": "Artists credited on the track.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "discNumber": {
+          "description": "Disc number of the track within its album.",
           "example": 1,
           "type": "integer"
         },
         "durationMs": {
+          "description": "Track length in milliseconds.",
           "example": 234083,
           "type": "integer"
         },
         "externalUrl": {
+          "description": "Link to the track on open.spotify.com.",
           "example": "https://open.spotify.com/track/4vGg44GdCw3X8i8r01XJH0",
           "type": "string"
         },
         "id": {
+          "description": "Spotify ID of the track.",
           "example": "4vGg44GdCw3X8i8r01XJH0",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the track's cover image.",
           "example": "https://i.scdn.co/image/ab67616d0000b273f377730d2a9c2e432139ac79",
           "type": "string"
         },
         "images": {
+          "description": "Cover images available for the track, with their sizes.",
           "items": {
             "$ref": "#/definitions/spotify.ImageAsset"
           },
           "type": "array"
         },
         "isExplicit": {
+          "description": "Whether Spotify marks the track as explicit.",
           "example": false,
           "type": "boolean"
         },
         "isPlayable": {
+          "description": "Whether the track can be played.",
           "example": true,
           "type": "boolean"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.TrackMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.TrackMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "name": {
+          "description": "Track title as Spotify shows it.",
           "example": "Example Track",
           "type": "string"
         },
         "playabilityReason": {
+          "description": "Reason code Spotify gives for the track's playability, for example `PLAYABLE`.",
           "example": "PLAYABLE",
           "type": "string"
         },
         "playcount": {
+          "description": "Number of times the track has been played, as Spotify shows it.",
           "example": "13129249",
           "type": "string"
         },
         "previewAudioUrl": {
+          "description": "URL of an audio preview of the track.",
           "example": "https://p.scdn.co/mp3-preview/example",
           "type": "string"
         },
         "previewAudioUrls": {
+          "description": "URLs of the audio previews available for the track.",
           "example": [
             "https://p.scdn.co/mp3-preview/example"
           ],
@@ -2002,18 +2502,22 @@
           "type": "array"
         },
         "shareUrl": {
+          "description": "Link to the track that Spotify offers for sharing.",
           "example": "https://open.spotify.com/track/4vGg44GdCw3X8i8r01XJH0",
           "type": "string"
         },
         "trackNumber": {
+          "description": "Position of the track within its album.",
           "example": 7,
           "type": "integer"
         },
         "type": {
+          "description": "Kind of item as Spotify labels it, for example `Track`.",
           "example": "Track",
           "type": "string"
         },
         "unplayabilityReasons": {
+          "description": "Reasons the track cannot be played, such as `not_available_in_region`.",
           "example": [
             "not_available_in_region"
           ],
@@ -2023,6 +2527,7 @@
           "type": "array"
         },
         "uri": {
+          "description": "Spotify URI of the track.",
           "example": "spotify:track:4vGg44GdCw3X8i8r01XJH0",
           "type": "string"
         }
@@ -2032,18 +2537,22 @@
     "spotify.TrackSimilarAlbumsMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "count": {
+          "description": "Number of albums returned.",
           "example": 10,
           "type": "integer"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:12Z",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "similarAlbumsBasedOnThisTrack",
           "type": "string"
         }
@@ -2053,23 +2562,32 @@
     "spotify.TrackSimilarAlbumsResponse": {
       "properties": {
         "albums": {
+          "description": "Albums Spotify suggests as similar to the track.",
           "items": {
             "$ref": "#/definitions/spotify.SearchResultSummary"
           },
           "type": "array"
         },
         "albumsOnly": {
+          "description": "Whether only album recommendations were requested.",
           "example": true,
           "type": "boolean"
         },
         "limit": {
+          "description": "Maximum number of albums requested.",
           "example": 10,
           "type": "integer"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.TrackSimilarAlbumsMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.TrackSimilarAlbumsMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "uri": {
+          "description": "Spotify URI of the track the albums are similar to.",
           "example": "spotify:track:4vGg44GdCw3X8i8r01XJH0",
           "type": "string"
         }
@@ -2079,31 +2597,42 @@
     "spotify.UserProfileFollowersResponse": {
       "properties": {
         "limit": {
+          "description": "Maximum number of followers requested.",
           "example": 50,
           "type": "integer"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.UserProfileMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.UserProfileMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "offset": {
+          "description": "Position of the first follower returned.",
           "example": 0,
           "type": "integer"
         },
         "profiles": {
+          "description": "Follower profiles returned.",
           "items": {
             "$ref": "#/definitions/spotify.UserProfileSummary"
           },
           "type": "array"
         },
         "total": {
+          "description": "Total number of followers the user has.",
           "example": 998,
           "type": "integer"
         },
         "uri": {
+          "description": "Spotify URI of the user.",
           "example": "spotify:user:spotify",
           "type": "string"
         },
         "username": {
+          "description": "Spotify username of the user.",
           "example": "spotify",
           "type": "string"
         }
@@ -2113,26 +2642,32 @@
     "spotify.UserProfileMeta": {
       "properties": {
         "appVersion": {
+          "description": "Version of the Spotify web player the data was read from.",
           "example": "1.2.90.403.gf901f20f",
           "type": "string"
         },
         "artistCount": {
+          "description": "Number of recently played artists returned.",
           "example": 0,
           "type": "integer"
         },
         "fetchedAt": {
+          "description": "Time the data was fetched, in UTC (RFC 3339).",
           "example": "2026-05-13T20:41:12Z",
           "type": "string"
         },
         "operationName": {
+          "description": "Name of the Spotify web player operation that returned the data.",
           "example": "userProfileView",
           "type": "string"
         },
         "playlistCount": {
+          "description": "Number of playlists returned.",
           "example": 10,
           "type": "integer"
         },
         "profileCount": {
+          "description": "Number of user profiles returned.",
           "example": 50,
           "type": "integer"
         }
@@ -2142,46 +2677,57 @@
     "spotify.UserProfilePlaylist": {
       "properties": {
         "externalUrl": {
+          "description": "Link to the playlist on open.spotify.com.",
           "example": "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M",
           "type": "string"
         },
         "followersCount": {
+          "description": "Number of followers the playlist has.",
           "example": 34324513,
           "type": "integer"
         },
         "id": {
+          "description": "Spotify ID of the playlist.",
           "example": "37i9dQZF1DXcBWIGoYBM5M",
           "type": "string"
         },
         "imageUrl": {
+          "description": "URL of the playlist cover image.",
           "example": "https://i.scdn.co/image/ab67706f0000000273f7bb6e77ec5e23d7840ae5",
           "type": "string"
         },
         "isFollowing": {
+          "description": "Whether Spotify marks the playlist as followed.",
           "example": false,
           "type": "boolean"
         },
         "name": {
+          "description": "Playlist title as Spotify shows it.",
           "example": "Today’s Top Hits",
           "type": "string"
         },
         "ownerName": {
+          "description": "Display name of the playlist owner.",
           "example": "Spotify",
           "type": "string"
         },
         "ownerUri": {
+          "description": "Spotify URI of the playlist owner.",
           "example": "spotify:user:spotify",
           "type": "string"
         },
         "ownerUrl": {
+          "description": "Link to the playlist owner's profile on open.spotify.com.",
           "example": "https://open.spotify.com/user/spotify",
           "type": "string"
         },
         "ownerUsername": {
+          "description": "Spotify username of the playlist owner.",
           "example": "spotify",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the playlist.",
           "example": "spotify:playlist:37i9dQZF1DXcBWIGoYBM5M",
           "type": "string"
         }
@@ -2191,31 +2737,42 @@
     "spotify.UserProfilePlaylistsResponse": {
       "properties": {
         "limit": {
+          "description": "Maximum number of playlists requested.",
           "example": 20,
           "type": "integer"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.UserProfileMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.UserProfileMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "offset": {
+          "description": "Position of the first playlist returned.",
           "example": 0,
           "type": "integer"
         },
         "publicPlaylists": {
+          "description": "Public playlists of the user.",
           "items": {
             "$ref": "#/definitions/spotify.UserProfilePlaylist"
           },
           "type": "array"
         },
         "totalPublicPlaylistsCount": {
+          "description": "Total number of public playlists the user has.",
           "example": 1519,
           "type": "integer"
         },
         "uri": {
+          "description": "Spotify URI of the user.",
           "example": "spotify:user:spotify",
           "type": "string"
         },
         "username": {
+          "description": "Spotify username of the user.",
           "example": "spotify",
           "type": "string"
         }
@@ -2225,80 +2782,107 @@
     "spotify.UserProfileResponse": {
       "properties": {
         "allowFollows": {
+          "description": "Whether the profile allows other users to follow it.",
           "example": true,
           "type": "boolean"
         },
         "color": {
+          "description": "Accent color of the profile, as a number.",
           "example": 16085920,
           "type": "integer"
         },
         "externalUrl": {
+          "description": "Link to the user's profile on open.spotify.com.",
           "example": "https://open.spotify.com/user/spotify",
           "type": "string"
         },
         "followersCount": {
+          "description": "Number of followers the user has.",
           "example": 12162371,
           "type": "integer"
         },
         "followingCount": {
+          "description": "Number of accounts the user follows.",
           "example": 327,
           "type": "integer"
         },
         "hasSpotifyImage": {
+          "description": "Whether the profile has an image set on Spotify.",
           "example": true,
           "type": "boolean"
         },
         "hasSpotifyName": {
+          "description": "Whether the profile has a display name set on Spotify.",
           "example": true,
           "type": "boolean"
         },
         "imageUrl": {
+          "description": "URL of the user's profile image.",
           "example": "https://i.scdn.co/image/ab6775700000ee8555c25988a6ac314394d3fbf5",
           "type": "string"
         },
         "isCurrentUser": {
+          "description": "Whether Spotify marks the profile as the current user's own.",
           "example": false,
           "type": "boolean"
         },
         "isVerified": {
+          "description": "Whether Spotify shows the profile as verified.",
           "example": true,
           "type": "boolean"
         },
         "meta": {
-          "$ref": "#/definitions/spotify.UserProfileMeta"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.UserProfileMeta"
+            }
+          ],
+          "description": "Details about this response."
         },
         "name": {
+          "description": "Display name of the user.",
           "example": "Spotify",
           "type": "string"
         },
         "publicPlaylists": {
+          "description": "Public playlists of the user.",
           "items": {
             "$ref": "#/definitions/spotify.UserProfilePlaylist"
           },
           "type": "array"
         },
         "recentlyPlayedArtists": {
+          "description": "Artists the user played recently.",
           "items": {
             "$ref": "#/definitions/spotify.UserProfileSummary"
           },
           "type": "array"
         },
         "showFollows": {
+          "description": "Whether Spotify shows the profile's follows publicly.",
           "example": true,
           "type": "boolean"
         },
         "topArtists": {
-          "$ref": "#/definitions/spotify.UserProfileTopArtists"
+          "allOf": [
+            {
+              "$ref": "#/definitions/spotify.UserProfileTopArtists"
+            }
+          ],
+          "description": "Top artists section of the profile."
         },
         "totalPublicPlaylistsCount": {
+          "description": "Total number of public playlists the user has.",
           "example": 1519,
           "type": "integer"
         },
         "uri": {
+          "description": "Spotify URI of the user.",
           "example": "spotify:user:spotify",
           "type": "string"
         },
         "username": {
+          "description": "Spotify username of the user.",
           "example": "spotify",
           "type": "string"
         }
@@ -2308,34 +2892,42 @@
     "spotify.UserProfileSummary": {
       "properties": {
         "color": {
+          "description": "Accent color of the profile, as a number.",
           "example": 16085920,
           "type": "integer"
         },
         "externalUrl": {
+          "description": "Link to the user's profile on open.spotify.com.",
           "example": "https://open.spotify.com/user/example",
           "type": "string"
         },
         "followersCount": {
+          "description": "Number of followers the user has.",
           "example": 1000,
           "type": "integer"
         },
         "imageUrl": {
+          "description": "URL of the user's profile image.",
           "example": "https://i.scdn.co/image/ab6775700000ee8555c25988a6ac314394d3fbf5",
           "type": "string"
         },
         "isFollowing": {
+          "description": "Whether Spotify marks the user as followed.",
           "example": false,
           "type": "boolean"
         },
         "name": {
+          "description": "Display name of the user.",
           "example": "Example",
           "type": "string"
         },
         "uri": {
+          "description": "Spotify URI of the user.",
           "example": "spotify:user:example",
           "type": "string"
         },
         "username": {
+          "description": "Spotify username of the user.",
           "example": "example",
           "type": "string"
         }
@@ -2345,18 +2937,22 @@
     "spotify.UserProfileTopArtists": {
       "properties": {
         "imageUrl": {
+          "description": "URL of the image shown for the section.",
           "example": "https://i.scdn.co/image/ab6775700000ee8555c25988a6ac314394d3fbf5",
           "type": "string"
         },
         "subtitle": {
+          "description": "Secondary line shown under the section heading.",
           "example": "Only visible to the user",
           "type": "string"
         },
         "title": {
+          "description": "Heading of the top artists section, as Spotify shows it.",
           "example": "Top artists this month",
           "type": "string"
         },
         "topArtistsPageUri": {
+          "description": "Spotify URI of the page that lists the user's top artists.",
           "example": "spotify:user:spotify:top:artists",
           "type": "string"
         }
@@ -2766,7 +3362,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify podcast category sections and items from Spotify's all-categories browsePage Pathfinder response.",
+        "description": "Returns the Spotify podcast categories page as sections of items such as Arts, for `uri` (default `spotify:page:0JQ5DArNBzkmxXHCqFLx2U`). Each section has a title, `totalCount` and items with title, image and Spotify URL. `page_limit` and `section_limit` default to 10 and run 1 to 50; the offsets default to 0.",
         "operationId": "spotify-podcasts-categories",
         "parameters": [
           {
@@ -2857,7 +3453,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify podcast chart rankings from podcastcharts.byspotify.com. The chart and region parameters are validated against Spotify's supported podcast chart slugs and countries. Category charts are available only in au, br, de, gb, mx, se, and us.",
+        "description": "Returns Spotify podcast chart rankings from podcastcharts.byspotify.com. The chart and region parameters are validated against Spotify's supported podcast chart slugs and countries. Category charts are available only in au, br, de, gb, mx, se, and us.",
         "operationId": "spotify-podcasts-charts",
         "parameters": [
           {
@@ -2977,7 +3573,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized public episode metadata from Spotify's getEpisodeOrChapter Pathfinder response, with episode page, embed page, and anonymous oEmbed fallbacks when Pathfinder is unavailable. Provide either uri or id; defaults to a known public episode when omitted.",
+        "description": "Returns public episode metadata. Provide either uri or id; defaults to a known public episode when omitted.",
         "operationId": "spotify-podcasts-episode",
         "parameters": [
           {
@@ -3040,7 +3636,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized sections and items from Spotify's podcast home browsePage Pathfinder response.",
+        "description": "Returns the Spotify podcasts home page as sections of items, for `uri` (default `spotify:genre:podcasts-web`). Each section has a title and items with type, title, publisher, images and Spotify URL. `page_limit` and `section_limit` default to 10 and run 1 to 50; the offsets default to 0.",
         "operationId": "spotify-podcasts-home",
         "parameters": [
           {
@@ -3131,7 +3727,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify podcast shows, episodes, and top results for a search term.",
+        "description": "Searches Spotify podcasts for `q`, returning matching `shows`, `episodes` and `topResults`, with counts in `meta`. `limit` and `number_of_top_results` run 1 to 50. Optional flags (`include_pre_releases`, `include_audiobooks`, `include_authors`) widen the results. Episodes carry duration and release date; shows carry publisher.",
         "operationId": "spotify-podcasts-search",
         "parameters": [
           {
@@ -3244,7 +3840,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized podcast show metadata from Spotify Pathfinder.",
+        "description": "Returns metadata for one Spotify podcast show by `uri` (default `spotify:show:1QQJ7FElLE0K6CIfZNCxU4`): name, publisher, description, media type, explicit flag, `totalEpisodes`, cover images and Spotify URL. The two `include_` flags request extra content capability and content rating fields when Spotify supplies them.",
         "operationId": "spotify-podcasts-show",
         "parameters": [
           {
@@ -3314,7 +3910,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized podcast episodes for a Spotify show URI.",
+        "description": "Returns the episodes of a Spotify podcast by show URI, with `offset` and `limit` (1-50). Each episode has its name, description, release date, duration in milliseconds, explicit and playable flags, Spotify URI, external URL and images; `total` gives the show's episode count.",
         "operationId": "spotify-podcasts-show-episodes",
         "parameters": [
           {
@@ -3391,7 +3987,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized related Spotify shows and episodes from Spotify's show recommendations response.",
+        "description": "Lists shows and episodes that Spotify recommends alongside a podcast show given by `uri`. Each recommendation has a type, title, publisher, description, images and Spotify URL, and `meta.count` gives the number returned. The response echoes the show `uri` it was requested for.",
         "operationId": "spotify-podcasts-show-recommendations",
         "parameters": [
           {
@@ -3447,7 +4043,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player album metadata and tracks from private Pathfinder responses.",
+        "description": "Returns a Spotify album from `uri` (a Spotify URI or open.spotify.com URL) or `id`: name, album type, artists, release date, copyrights, cover images, total tracks and duration. The `tracks` page is set by `offset` (default 0) and `limit` (1 to 50, default 50). A missing or invalid identifier returns 400.",
         "operationId": "spotify-album",
         "parameters": [
           {
@@ -3524,7 +4120,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player album tracks from private Pathfinder responses.",
+        "description": "Lists the tracks of a Spotify album, identified by `uri` (a Spotify URI or open.spotify.com URL) or `id`. `offset` defaults to 0 and `limit` runs 1 to 50, default 50. Each track has its title, URI, subtitle, image and URL. The album's name, artists and track total come back alongside. An invalid identifier returns 400.",
         "operationId": "spotify-album-tracks",
         "parameters": [
           {
@@ -3601,7 +4197,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player album search results for a search term. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "description": "Returns Spotify album search results for a search term. Caller-supplied Spotify bearer or client tokens are not required.",
         "operationId": "spotify-albums-search",
         "parameters": [
           {
@@ -3714,7 +4310,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player artist overview data from private Pathfinder responses.",
+        "description": "Returns a Spotify artist's profile by artist URI, `open.spotify.com` URL or id: name, verified flag, follower count, monthly listeners (`monthlyUsers`), biography and images, plus top tracks, selected discography, related artists and artist playlists when Spotify returns them.",
         "operationId": "spotify-artist",
         "parameters": [
           {
@@ -3777,7 +4373,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns artist discography items from Spotify Web Player private Pathfinder responses.",
+        "description": "Returns an artist's Spotify discography by artist URI, `open.spotify.com` URL or id. Choose `type` (`album`, `single`, `compilation`, `appears_on` or `all`; default `album`) and `order` (default `date_desc`), and page with `offset` and `limit` (1-50, default 50). Each item has a type, title, subtitle, Spotify URI, external URL and images; `total` gives the full count.",
         "operationId": "spotify-artist-albums",
         "parameters": [
           {
@@ -3881,7 +4477,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns artist playlists from Spotify Web Player private Pathfinder responses.",
+        "description": "Returns the Spotify playlists associated with an artist, by artist URI, `open.spotify.com` URL or id. Each playlist has a title, subtitle, description, Spotify URI, external URL and images. Some artists have no playlists, in which case `items` is empty.",
         "operationId": "spotify-artist-playlists",
         "parameters": [
           {
@@ -3944,7 +4540,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns related artists from Spotify Web Player private Pathfinder responses.",
+        "description": "Returns the artists Spotify lists as related to a given artist, by artist URI, `open.spotify.com` URL or id. Each related artist has a title, Spotify URI, external URL and images. An invalid identifier returns `400`.",
         "operationId": "spotify-artist-related",
         "parameters": [
           {
@@ -4007,7 +4603,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player artist search results for a search term.",
+        "description": "Searches Spotify for artists matching a term, with `offset` and `limit` (1-50). Each artist has a title, Spotify URI, external URL and images. Matching artists are returned in both `results` and `artists`.",
         "operationId": "spotify-artists-search",
         "parameters": [
           {
@@ -4078,7 +4674,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns Spotify Web Player audiobook metadata from private Pathfinder responses. Spotify exposes audiobooks through show URIs.",
+        "description": "Returns a Spotify audiobook by `uri` or `id`; Spotify identifies audiobooks with show URIs (`spotify:show:...`). The response has name, authors, narrators, publisher, description, `totalChapters`, explicit flag and cover images. Passing a podcast show instead of an audiobook returns an upstream error, and an invalid identifier returns 400.",
         "operationId": "spotify-audiobook",
         "parameters": [
           {
@@ -4141,7 +4737,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns audiobook chapters from Spotify Web Player private Pathfinder responses.",
+        "description": "Returns the chapters of a Spotify audiobook by URI, `open.spotify.com` URL or id, with `offset` and `limit` (1-50, default 50). Each chapter has its name, description, duration in milliseconds, release date, explicit and playable flags, Spotify URI, external URL and images; `total` gives the chapter count.",
         "operationId": "spotify-audiobook-chapters",
         "parameters": [
           {
@@ -4218,7 +4814,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player audiobook search results for a search term. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "description": "Returns Spotify audiobook search results for a search term. Caller-supplied Spotify bearer or client tokens are not required.",
         "operationId": "spotify-audiobooks-search",
         "parameters": [
           {
@@ -4331,7 +4927,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns a Spotify chapter from the same private Pathfinder operation used for episodes and chapters.",
+        "description": "Returns a Spotify audiobook chapter by `uri` or `id`; chapters are often addressed with `spotify:episode:` identifiers. Fields include name, description, duration, release date, explicit and paywall flags, playability reasons, preview audio URL, cover images and the parent show. An invalid identifier returns 400.",
         "operationId": "spotify-chapter",
         "parameters": [
           {
@@ -4394,7 +4990,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player episode search results for a search term.",
+        "description": "Searches Spotify podcast episodes for the search term `q`, paged with `offset` (default 0) and `limit` (1 to 50). Each episode has its title, URI, description, publisher, images and Spotify URL. Episode matches appear under both `results` and `episodes`. A missing `q` returns 400.",
         "operationId": "spotify-episodes-search",
         "parameters": [
           {
@@ -4465,7 +5061,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify country hub content from Spotify's countryHubContent Pathfinder response. Defaults to the CHARTS content shelf for the requested country.",
+        "description": "Returns Spotify country hub content. Defaults to the CHARTS content shelf for the requested country.",
         "operationId": "spotify-featured-charts-by-country",
         "parameters": [
           {
@@ -4534,7 +5130,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized sections and items from Spotify's browsePage Pathfinder response for a Spotify genre or page URI.",
+        "description": "Returns the sections of a Spotify genre or browse page for `uri` (default `spotify:page:0JQ5DAB3zgCauRwnvdEQjJ`). Each section has a title, type, `totalCount` and items with title, subtitle, image and Spotify URL. `page_limit` and `section_limit` default to 10 and run 1 to 50; matching offsets default to 0.",
         "operationId": "spotify-genre",
         "parameters": [
           {
@@ -4625,7 +5221,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized shelves and items from Spotify's Web Player home Pathfinder response. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "description": "Returns Spotify home shelves and items. Caller-supplied Spotify bearer or client tokens are not required.",
         "operationId": "spotify-home",
         "parameters": [
           {
@@ -4709,7 +5305,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player playlist metadata and items from Spotify's fetchPlaylist Pathfinder response. Provide either uri or id; defaults to a known public playlist when omitted.",
+        "description": "Returns Spotify playlist metadata and items. Provide either uri or id; defaults to a known public playlist when omitted.",
         "operationId": "spotify-playlist",
         "parameters": [
           {
@@ -4800,7 +5396,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player playlist search results for a search term. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "description": "Returns Spotify playlist search results for a search term. Caller-supplied Spotify bearer or client tokens are not required.",
         "operationId": "spotify-playlists-search",
         "parameters": [
           {
@@ -4913,7 +5509,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify country hub shelves from Spotify's countryHubsPage Pathfinder response. The country_code parameter accepts Spotify popular-in country codes from open.spotify.com/popular-in/us.",
+        "description": "Returns Spotify country hub shelves. The country_code parameter accepts Spotify popular-in country codes from open.spotify.com/popular-in/us.",
         "operationId": "spotify-popular-by-country",
         "parameters": [
           {
@@ -4969,7 +5565,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized public profile metadata and preview playlists from Spotify's Web Player user-profile service. Provide username, uri, or url; defaults to Spotify's official profile.",
+        "description": "Returns public Spotify profile metadata and preview playlists. Provide username, uri, or url; defaults to Spotify's official profile.",
         "operationId": "spotify-profile",
         "parameters": [
           {
@@ -5060,7 +5656,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized public follower profiles from Spotify's Web Player user-profile service. Spotify exposes this as a public anonymous response for some profiles; private or restricted profiles may return an upstream error.",
+        "description": "Returns public Spotify follower profiles. Spotify exposes this publicly for some profiles; private or restricted profiles may return an upstream error.",
         "operationId": "spotify-profile-followers",
         "parameters": [
           {
@@ -5144,7 +5740,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized public playlists from Spotify's Web Player user-profile service. Provide username, uri, or url; defaults to Spotify's official profile.",
+        "description": "Returns public Spotify playlists. Provide username, uri, or url; defaults to Spotify's official profile.",
         "operationId": "spotify-profile-playlists",
         "parameters": [
           {
@@ -5228,7 +5824,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player profile search results for a search term. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "description": "Returns Spotify profile search results for a search term. Caller-supplied Spotify bearer or client tokens are not required.",
         "operationId": "spotify-profiles-search",
         "parameters": [
           {
@@ -5341,7 +5937,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player catalog search results across tracks, artists, albums, playlists, shows, episodes, audiobooks, and top results. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "description": "Returns Spotify catalog search results across tracks, artists, albums, playlists, shows, episodes, audiobooks, and top results. Caller-supplied Spotify bearer or client tokens are not required.",
         "operationId": "spotify-search",
         "parameters": [
           {
@@ -5468,7 +6064,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized items from Spotify's browseSection Pathfinder response for a Spotify section URI.",
+        "description": "Returns the items of one Spotify browse section for `uri` (default `spotify:section:0JQ5IMCbQBLqNPkcmYxQPQ`), with its title, subtitle and `totalCount`. Each item has a type, title, subtitle, images and Spotify URL. `offset` defaults to 0; `limit` runs 1 to 50 and defaults to 20.",
         "operationId": "spotify-section",
         "parameters": [
           {
@@ -5545,7 +6141,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player show search results for a search term.",
+        "description": "Searches Spotify podcast shows for the search term `q`, paged with `offset` (default 0) and `limit` (1 to 50). Each show has its title, URI, publisher, description, images and Spotify URL. Show matches appear under both `results` and `shows`. A missing `q` returns 400.",
         "operationId": "spotify-shows-search",
         "parameters": [
           {
@@ -5616,7 +6212,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player track metadata from Spotify's getTrack Pathfinder response. Provide either uri or id; defaults to a known public track when omitted.",
+        "description": "Returns Spotify track metadata. Provide either uri or id; defaults to a known public track when omitted.",
         "operationId": "spotify-track",
         "parameters": [
           {
@@ -5679,7 +6275,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized recommended Spotify entities from the internalLinkRecommenderTrack Pathfinder response.",
+        "description": "Returns Spotify's recommendations for a track, given its URI, `open.spotify.com` URL or track id. Each recommendation has a type, title, subtitle, description, Spotify URI, external URL and images. `limit` is clamped to 1-50 and defaults to 5.",
         "operationId": "spotify-track-recommended",
         "parameters": [
           {
@@ -5749,7 +6345,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized albums from the similarAlbumsBasedOnThisTrack Pathfinder response.",
+        "description": "Lists albums similar to a Spotify track, identified by `uri` or `id`. `limit` runs 1 to 50, default 50, and `albums_only` requests albums-only recommendations. Each album has its title, subtitle, publisher, images and Spotify URL. With neither `uri` nor `id`, a known public track is used.",
         "operationId": "spotify-track-similar-albums",
         "parameters": [
           {
@@ -5826,7 +6422,7 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns normalized Spotify Web Player track search results for a search term. The endpoint fetches anonymous Spotify credentials at request time; caller-supplied Spotify bearer or client tokens are not required.",
+        "description": "Returns Spotify track search results for a search term. Caller-supplied Spotify bearer or client tokens are not required.",
         "operationId": "spotify-tracks-search",
         "parameters": [
           {

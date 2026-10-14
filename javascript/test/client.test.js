@@ -26,7 +26,7 @@ test("serializes required query/path values, adds API key and platform User-Agen
   await client.request("spotify-podcasts-search", {"q": "sample"});
   assert.match(seen.url, /\/spotify\-podcasts\/search/);
   assert.equal(seen.headers["x-api-key"], "secret");
-  assert.equal(seen.headers["user-agent"], "crawlora-spotify-js/0.1.1");
+  assert.equal(seen.headers["user-agent"], "crawlora-spotify-js/0.2.0");
 });
 
 test("allows caller User-Agent override and response text mode", async () => {
