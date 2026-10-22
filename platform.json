@@ -35,6 +35,8 @@
   ],
   "repository": "https://github.com/Crawlora-org/crawlora-spotify",
   "ruby_gem_name": "crawlora-spotify",
+  "rust_crate_name": "crawlora-spotify",
+  "rust_module_name": "crawlora_spotify",
   "source_contract_sha256": "edf94a318d422a94556084a811322eca2f95fd990cb37ad55abc6475c46b633a",
   "version": "0.2.0"
 }
